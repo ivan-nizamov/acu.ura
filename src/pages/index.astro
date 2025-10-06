@@ -1,7 +1,8 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
 ---
 
+<Layout>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -11,6 +12,14 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+	<div class="bg-bg text-fg border rounded-xl p-6">
+  <h1 class="text-xl font-semibold">Hello</h1>
+  <p class="text-sm text-muted">Muted paragraph</p>
+  <a class="inline-flex items-center px-3 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90">
+    Get started
+  </a>
+</div>
+
 	</body>
 </html>
+</Layout>

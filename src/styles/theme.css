@@ -1,0 +1,91 @@
+/* Tailwind v4 entry */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import "tailwindcss";
+
+/* =========================================================
+   1) Define full colors at the variable (HSL/HEX/RGB allowed)
+   ========================================================= */
+:root {
+  /* Fonts */
+  --font-serif: "EB Garamond", Georgia, serif;
+
+  /* Store your LIGHT “source” values once */
+  --bg-light: hsl(0, 0%, 100%);       /* your provided bg */
+  --fg-light: hsl(0, 0%, 0%);       /* fixed from '#120, 1%, 17%' */
+
+  /* Other tokens (define as complete colors) */
+  --muted: hsl(210 40% 96.1%);
+  --card: hsl(0 0% 100%);
+  --border: hsl(214.3 31.8% 91.4%);
+  --primary: hsl(221.2 83.2% 53.3%);
+  --primary-foreground: hsl(210 40% 98%);
+  --secondary: hsl(210 40% 96.1%);
+  --secondary-foreground: hsl(222.2 47.4% 11.2%);
+  --accent: hsl(210 40% 96.1%);
+  --accent-foreground: hsl(222.2 47.4% 11.2%);
+  --destructive: hsl(0 72% 51%);
+  --destructive-foreground: hsl(210 40% 98%);
+  --ring: hsl(221.2 83.2% 53.3%);
+
+  /* Active theme pointers (LIGHT by default) */
+  --bg: var(--bg-light);
+  --fg: var(--fg-light);
+}
+
+:root.dark {
+  /* Invert bg/fg automatically in dark */
+  --bg: var(--fg-light);
+  --fg: var(--bg-light);
+
+  /* You can optionally override other tokens for dark,
+     or keep them as-is. Here are darker-friendly versions: */
+  --muted: hsl(223 11% 18%);
+  --card: hsl(224 14% 12%);
+  --border: hsl(223 13% 22%);
+  --primary: hsl(217 92% 60%);
+  --primary-foreground: hsl(210 40% 98%);
+  --secondary: hsl(223 11% 18%);
+  --secondary-foreground: hsl(213 31% 91%);
+  --accent: hsl(223 11% 18%);
+  --accent-foreground: hsl(213 31% 91%);
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(210 40% 98%);
+  --ring: hsl(217 92% 60%);
+}
+
+@theme {
+  /* Fonts */
+  --font-serif: var(--font-serif);
+
+  /* Colors (each is already a complete color) */
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --ring-color: var(--ring);
+}
+
+/* =========================================================
+   3) Base styles that auto-switch via variables
+   ========================================================= */
+@layer base {
+  html { color-scheme: light; }
+  html.dark { color-scheme: dark; }
+
+  body {
+    @apply bg-bg text-fg font-serif;
+  }
+
+  * { @apply border-border; }
+}

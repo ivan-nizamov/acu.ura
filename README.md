@@ -1,29 +1,30 @@
 # Astro Starter Kit: Minimal
 
+Initialise project with:
+
 ```sh
 pnpm create astro@latest -- --template minimal
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Add Tailwind:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+pnpm astro add tailwind
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Import tailwind in your global css:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```
+@/import "tailwindcss";
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+```
+---
+import "../styles/global.css";
+---
+```
+
+source = https://www.reddit.com/r/astrojs/comments/1jq0pj7/astro_tailwind/
 
 ## 🧞 Commands
 

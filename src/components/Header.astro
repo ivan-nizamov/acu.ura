@@ -1,0 +1,81 @@
+---
+/* src/components/Navbar.astro */
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+const topLevelPath = Astro.url.pathname.split("/")[1] ?? "";
+---
+
+<header class="sticky bg-bg/80 backdrop-blur">
+  <div class="mx-auto px-4 sm:px-6 ">
+    <nav class="h-12 flex items-center justify-between">
+      <!-- Left: Brand -->
+      <a href="/" class="--font-serif tracking-tight text-fg font-bold text-2xl sm:text-3xl italic">Iva</a>
+
+      <!-- Right: text + links + theme toggle -->
+      <div class="flex items-stretch -me-3">
+        <!-- Links -->
+        <div class="flex items-stretch">
+          {links.map(({ href, label }) => {
+            const active = topLevelPath === href.split("/")[1];
+            return (
+              <a
+                href={href}
+                class={`inline-flex items-center px-2.5 py-2 rounded-full text-sm text-fg/90 hover:font-semibold transition-[font-weight] duration-200 ${
+                  active ? "font-semibold" : ""
+                }`}
+              >
+                {label}
+              </a>
+            );
+          })}
+        </div>
+
+        <!-- Theme toggle -->
+        <button
+          type="button"
+          data-theme-toggle
+          aria-label="Toggle theme"
+          class="relative box-content inline-flex items-center justify-center w-5 h-5 px-3 py-2 rounded-full text-fg/90 hover:font-semibold transition-[font-weight] duration-200
+          <!-- Hover effect for theme toggle -->
+          hover:[&_.sun-icon]:-rotate-15 hover:[&_.moon-icon]:rotate-10"
+          onclick="window.__toggleTheme && window.__toggleTheme()"
+        >
+          <!-- sun -->
+          <svg class="sun-icon size-5 transition-transform duration-300 ease-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- moon -->
+          <svg class="moon-icon size-5 transition-transform duration-300 ease-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Tiny CSS to replicate the aesthetic flip -->
+  <style is:global>
+    /* Hide/rotate the moon in light; hide/rotate the sun in dark */
+    html:not(.dark) .moon-icon {
+      transform: rotate(90deg);
+      opacity: 0;
+      position: absolute;
+    }
+    html.dark .sun-icon {
+      transform: rotate(-90deg);
+      opacity: 0;
+      position: absolute;
+    }
+  </style>
+</header>
