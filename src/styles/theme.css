@@ -2,90 +2,79 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 @import "tailwindcss";
 
-/* =========================================================
-   1) Define full colors at the variable (HSL/HEX/RGB allowed)
-   ========================================================= */
-:root {
-  /* Fonts */
-  --font-serif: "EB Garamond", Georgia, serif;
-
-  /* Store your LIGHT “source” values once */
-  --bg-light: hsl(0, 0%, 100%);       /* your provided bg */
-  --fg-light: hsl(0, 0%, 0%);       /* fixed from '#120, 1%, 17%' */
-
-  /* Other tokens (define as complete colors) */
-  --muted: hsl(210 40% 96.1%);
-  --card: hsl(0 0% 100%);
-  --border: hsl(214.3 31.8% 91.4%);
-  --primary: hsl(221.2 83.2% 53.3%);
-  --primary-foreground: hsl(210 40% 98%);
-  --secondary: hsl(210 40% 96.1%);
-  --secondary-foreground: hsl(222.2 47.4% 11.2%);
-  --accent: hsl(210 40% 96.1%);
-  --accent-foreground: hsl(222.2 47.4% 11.2%);
-  --destructive: hsl(0 72% 51%);
-  --destructive-foreground: hsl(210 40% 98%);
-  --ring: hsl(221.2 83.2% 53.3%);
-
-  /* Active theme pointers (LIGHT by default) */
-  --bg: var(--bg-light);
-  --fg: var(--fg-light);
-}
-
-:root.dark {
-  /* Invert bg/fg automatically in dark */
-  --bg: var(--fg-light);
-  --fg: var(--bg-light);
-
-  /* You can optionally override other tokens for dark,
-     or keep them as-is. Here are darker-friendly versions: */
-  --muted: hsl(223 11% 18%);
-  --card: hsl(224 14% 12%);
-  --border: hsl(223 13% 22%);
-  --primary: hsl(217 92% 60%);
-  --primary-foreground: hsl(210 40% 98%);
-  --secondary: hsl(223 11% 18%);
-  --secondary-foreground: hsl(213 31% 91%);
-  --accent: hsl(223 11% 18%);
-  --accent-foreground: hsl(213 31% 91%);
-  --destructive: hsl(0 84% 60%);
-  --destructive-foreground: hsl(210 40% 98%);
-  --ring: hsl(217 92% 60%);
-}
-
-@theme {
-  /* Fonts */
-  --font-serif: var(--font-serif);
-
-  /* Colors (each is already a complete color) */
-  --color-bg: var(--bg);
-  --color-fg: var(--fg);
-  --color-muted: var(--muted);
-  --color-card: var(--card);
-  --color-border: var(--border);
-
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-
-  --ring-color: var(--ring);
-}
-
-/* =========================================================
-   3) Base styles that auto-switch via variables
-   ========================================================= */
+/* Base tokens (CSS variables) */
 @layer base {
-  html { color-scheme: light; }
-  html.dark { color-scheme: dark; }
+  :root {
+    --font-serif: 'EB Garamond', serif;
 
-  body {
-    @apply bg-bg text-fg font-serif;
+    /* utopia.fyi — Font sizes */
+    --step--1: clamp(0.8889rem, 0.88rem + 0.0444vi, 0.9rem);
+    --step-0:  clamp(1rem, 0.9rem + 0.5vi, 1.125rem);
+    --step-1:  clamp(1.125rem, 0.9rem + 1.125vi, 1.4063rem);
+    --step-2:  clamp(1.2656rem, 0.8719rem + 1.9688vi, 1.7578rem);
+    --step-3:  clamp(1.4238rem, 0.8051rem + 3.0938vi, 2.1973rem);
+    --step-4:  clamp(1.6018rem, 0.686rem + 4.5791vi, 2.7466rem);
+    --step-5:  clamp(1.802rem, 0.4971rem + 6.5248vi, 3.4332rem);
+    --step-6:  clamp(2.0273rem, 0.2159rem + 9.057vi, 4.2915rem);
+
+    /* utopia.fyi — Spaces */
+    --space-xs: clamp(0.75rem, 0.55rem + 1vw, 1rem);
+    --space-s:  clamp(1rem, 0.75rem + 1.25vw, 1.3125rem);
+    --space-m:  clamp(1.5rem, 1.1rem + 2vw, 2rem);
+    --space-l:  clamp(2rem, 1.5rem + 2.5vw, 2.625rem);
+    --space-xl: clamp(3rem, 2.25rem + 3.75vw, 3.9375rem);
+    --space-2xl: clamp(4rem, 3rem + 5vw, 5.25rem);
+    --space-3xl: clamp(6rem, 4.5rem + 7.5vw, 7.875rem);
+
+    /* One-up pairs */
+    --space-xs-s:    clamp(0.75rem, 0.3rem + 2.25vw, 1.3125rem);
+    --space-s-m:     clamp(1rem, 0.2rem + 4vw, 2rem);
+    --space-m-l:     clamp(1.5rem, 0.6rem + 4.5vw, 2.625rem);
+    --space-l-xl:    clamp(2rem, 0.45rem + 7.75vw, 3.9375rem);
+    --space-xl-2xl:  clamp(3rem, 1.2rem + 9vw, 5.25rem);
+    --space-2xl-3xl: clamp(4rem, 0.9rem + 15.5vw, 7.875rem);
+
+    /* Light mode colors as full hsl() values */
+    --surface: hsl(0 0% 100%);
+    --text: hsl(222 47% 11%);
+    --muted: hsl(220 14% 96%);
+    --primary: hsl(221 83% 53%);
+    --primary-foreground: hsl(0 0% 100%);
   }
 
-  * { @apply border-border; }
+  .dark {
+    /* Dark mode colors as full hsl() values */
+    --surface: hsl(222 47% 11%);
+    --text: hsl(0 0% 100%);
+    --muted: hsl(217 24% 17%);
+    --primary: hsl(217 91% 60%);
+    --primary-foreground: hsl(222 47% 11%);
+  }
+
+  /* Optional sensible defaults */
+  body {
+    font-family: var(--font-serif);
+    background-color: var(--surface);
+    color: var(--text);
+  }
+}
+
+/* Tailwind design tokens so you can use e.g. `my-m`, `px-xl`, `gap-s`,
+   and color classes like `bg-surface`, `text-text`, `border-primary` */
+@theme {
+  /* Colors */
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  /* Spacing */
+  --spacing-xs: var(--space-xs);
+  --spacing-s:  var(--space-s);
+  --spacing-m:  var(--space-m);
+  --spacing-l:  var(--space-l);
+  --spacing-xl: var(--space-xl);
+  --spacing-2xl: var(--space-2xl);
+  --spacing-3xl: var(--space-3xl);
 }

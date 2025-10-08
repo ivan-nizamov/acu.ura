@@ -2,17 +2,25 @@
 // src/layouts/Layout.astro
 import "../styles/theme.css";
 import Header from "../components/Header.astro";
-const { title = "Site" } = Astro.props;
+import Footer from "../components/Footer.astro";
+import Center from "../components/Center.astro"
 ---
+
 <html lang="en">
   <head>
+    <title>Astro</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <script src="/theme.js" is:inline></script>
-    <Header />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
   </head>
-  <body class="min-h-screen">
-    <slot />
-  </body>
+  <Center>
+    <body>
+      <Header />
+        <main>
+          <slot />
+        </main>
+    </body>
+  </Center>
+  <Footer />
 </html>
