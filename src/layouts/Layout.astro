@@ -1,26 +1,33 @@
 ---
 // src/layouts/Layout.astro
 import "../styles/theme.css";
+import "../styles/transitions.css"; // ⬅ import the custom animations
+import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Center from "../components/Center.astro"
+import Center from "../components/Center.astro";
 ---
-
 <html lang="en">
   <head>
     <title>Astro</title>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
   </head>
-  <Center>
-    <body>
+  <body>
+    <header transition:persist>
       <Header />
-        <main>
-          <slot />
-        </main>
-    </body>
-  </Center>
-  <Footer />
+    </header>
+
+    <Center>
+      <!-- Use a custom name; do NOT use transition:animate here -->
+      <main transition:name="content">
+        <slot />
+      </main>
+    </Center>
+
+    <footer transition:persist>
+      <Footer />
+    </footer>
+  </body>
 </html>

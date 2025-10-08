@@ -1,0 +1,24 @@
+/* src/styles/transitions.css */
+/* Keep header/footer static even in native VT engines */
+header, footer { view-transition-name: none; }
+
+/* Only animate when motion is okay */
+@media (prefers-reduced-motion: no-preference) {
+  /* 'content' is the value from transition:name="content" */
+  ::view-transition-old(content) {
+    animation: vt-fade-slide-out 220ms ease both;
+  }
+  ::view-transition-new(content) {
+    animation: vt-fade-slide-in 280ms 60ms ease both;
+  }
+
+  @keyframes vt-fade-slide-out {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(8px); } /* fade + slide down */
+  }
+
+  @keyframes vt-fade-slide-in {
+    from { opacity: 0; transform: translateY(-8px); } /* start slightly above */
+    to   { opacity: 1; transform: translateY(0); }    /* slide down into place */
+  }
+}
