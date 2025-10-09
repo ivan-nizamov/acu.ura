@@ -2,10 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Maple Mono";
+  src: url("/fonts/MapleMono[wght].ttf") format("truetype");
+  font-weight: 300 800; /* weight axis range; adjust to your file */
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Base tokens (CSS variables) */
 @layer base {
   :root {
     --font-serif: 'EB Garamond', serif;
+    --font-mono: "Maple Mono", monospace;
 
     /* utopia.fyi — Font sizes */
     --step--1: clamp(0.8889rem, 0.88rem + 0.0444vi, 0.9rem);
@@ -62,6 +71,11 @@
 /* Tailwind design tokens so you can use e.g. `my-m`, `px-xl`, `gap-s`,
    and color classes like `bg-surface`, `text-text`, `border-primary` */
 @theme {
+  
+  /* Fonts */
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+
   /* Colors */
   --color-surface: var(--surface);
   --color-text: var(--text);
