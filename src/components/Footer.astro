@@ -4,13 +4,11 @@ import Center from "../components/Center.astro";
 ---
 <footer class="border-t-1 border-muted my-s">
     <Center>
-        <div>
-            <a href="/about" class="flex-auto">About</a>
-            <a href="/colophon" class="flex-auto">Colophon</a>
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(var(--space-xl),1fr))] gap-s text-[var(--step--1)] py-s">
+            <a href="/contact" class="text-center">Contact</a>
+            <a href="/colophon" class="text-center">Colophon</a>
+            <a href="/about" class="text-center">About</a>
         </div>
-        <div>   
-            <a href="/about" class="flex-auto">About</a>
-        </div>
+        <p class="text-center text-xs">Copyright &copy; {new Date().getFullYear()} Dalibor. All rights reserved.</p>
     </Center>
-
 </footer>

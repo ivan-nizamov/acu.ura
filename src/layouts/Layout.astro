@@ -1,18 +1,34 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
+import Center from "../components/Center.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 const pageTransition = {
   forwards: {
     old: {
-      name: "slideDownFade",
+      name: "slideUpOut",
       duration: "var(--transition-duration)",
       easing: "var(--transition-easing)",
       fillMode: "forwards",
     },
     new: {
-      name: "slideUpFade",
+      name: "slideUpIn",
+      duration: "var(--transition-duration)",
+      easing: "var(--transition-easing)",
+      fillMode: "forwards",
+    },
+  },
+  backwards: {
+    old: {
+      name: "slideDownOut",
+      duration: "var(--transition-duration)",
+      easing: "var(--transition-easing)",
+      fillMode: "forwards",
+    },
+    new: {
+      name: "slideDownIn",
       duration: "var(--transition-duration)",
       easing: "var(--transition-easing)",
       fillMode: "forwards",
@@ -31,10 +47,12 @@ const pageTransition = {
     <ClientRouter />
   </head>
   <body>
-    <Header />
-
-    <main transition:animate={pageTransition} class="p-4">
-      <slot />
-    </main>
+    <Center>
+      <Header />
+      <main transition:animate={pageTransition} class="flex-1">
+        <slot />
+      </main>
+    </Center>
+    <Footer />
   </body>
 </html>
