@@ -1,17 +1,15 @@
----
-
----
-
 <dl class="border-muted flex flex-col overflow-hidden rounded-xl border">
-  <div class="bg-muted p-s">
-    <dt class="text-xl font-bold">Program de Lucru</dt>
+  <div class="bg-muted p-s justify-center border-b border-muted flex">
+    <dt class="text-step-2 font-bold">Program de Lucru</dt>
   </div>
+
+  <!-- Make the container a 2-col grid with a fixed first column -->
   <div
-    class="p-m gap-xs flex flex-col"
     id="schedule-container"
+    class="p-m grid gap-x-s gap-y-xs grid-cols-[clamp(7ch,20vw,15ch)_1fr]"
     data-endpoint="https://script.google.com/macros/s/AKfycbznyNFX0j0t23zZWU217vnAZBDaM0qTsXRSmztuH8BnN9C3-P7I3qfOEGoFXx20w14l8g/exec"
   >
-    <div class="animate-pulse">Loading...</div>
+    <div class="animate-pulse text-step-2 font-bold col-span-2">Imediat...</div>
   </div>
 </dl>
 
@@ -25,29 +23,25 @@
       .then((data) => {
         const scheduleHtml = data.data
           .map(
-            (schedule: { day: string; hours: string }) => `
-          <div class="gap-s grid grid-cols-[minmax(5rem,auto)_1fr]">
-            <dt class="font-bold">${schedule.day}</dt>
-            <dd>
-              ${schedule.hours
-                .split(" și ")
-                .map(
-                  (time: string, index: number, array: string[]) => `
-                ${time}
-                ${index < array.length - 1 ? '<span class="mx-xs text-muted">și</span>' : ""}
-              `,
-                )
-                .join("")}
-            </dd>
-          </div>
-        `,
+            (schedule) => `
+              <dt class="text-step-2 font-semibold">${schedule.day}</dt>
+              <dd class="text-step-2 font-semibold tabular-nums">
+                ${schedule.hours
+                  .split(" și ")
+                  .map((time, i, arr) => `
+                    ${time}${i < arr.length - 1 ? '<span class="mx-xs text-text text-step-2"> și </span>' : ""}
+                  `)
+                  .join("")}
+              </dd>
+            `
           )
           .join("");
 
         container.innerHTML = scheduleHtml;
       })
       .catch((error) => {
-        container.innerHTML = '<div class="text-red-500">Failed to load schedule</div>';
+        container.innerHTML =
+          '<div class="text-red-500 text-step-2 font-bold col-span-2">Failed to load schedule</div>';
         console.error("Error loading schedule:", error);
       });
   }

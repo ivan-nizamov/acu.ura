@@ -1,12 +1,10 @@
 ---
 /* Astro component */
 ---
-
-<div
-  class="/* box-sizing: content-box */ /* margin-inline: auto */ /* width: calc(100% - (var(--space-xl) * 2)) */ /* max-inline-size: 800px */ mx-auto box-content w-[calc(100%-(var(--space-m)*2))] max-w-[800px] px-[var(--space-m)]"
-  style="
-    padding-inline: calc(var(--space-xl) * 1);
-  "
->
-  <slot />
-</div>
+<section class="px-xl">
+  <div
+    class="mx-auto max-w-[800px]"
+  >
+      <slot />
+  </div>
+</section>
