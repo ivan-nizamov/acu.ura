@@ -1,33 +1,54 @@
 ---
-interface Props {
-  schedule: Array<{
-    day: string;
-    hours: string[];
-  }>;
-}
 
-const { schedule } = Astro.props;
 ---
 
 <dl class="border-muted flex flex-col overflow-hidden rounded-xl border">
   <div class="bg-muted p-s">
     <dt class="text-xl font-bold">Program de Lucru</dt>
   </div>
-  <div class="p-m gap-xs flex flex-col">
-    {
-      schedule.map(({ day, hours }) => (
-        <div class="gap-s grid grid-cols-[minmax(5rem,auto)_1fr]">
-          <dt class="font-bold">{day}:</dt>
-          <dd>
-            {hours.map((time, index) => (
-              <>
-                {time}
-                {index < hours.length - 1 && <span class="mx-xs text-muted">și</span>}
-              </>
-            ))}
-          </dd>
-        </div>
-      ))
-    }
+  <div
+    class="p-m gap-xs flex flex-col"
+    id="schedule-container"
+    data-endpoint="https://script.google.com/macros/s/AKfycbznyNFX0j0t23zZWU217vnAZBDaM0qTsXRSmztuH8BnN9C3-P7I3qfOEGoFXx20w14l8g/exec"
+  >
+    <div class="animate-pulse">Loading...</div>
   </div>
 </dl>
+
+<script>
+  const container = document.getElementById("schedule-container");
+  const endpoint = container?.dataset.endpoint;
+
+  if (container && endpoint) {
+    fetch(endpoint)
+      .then((res) => res.json())
+      .then((data) => {
+        const scheduleHtml = data.data
+          .map(
+            (schedule) => `
+          <div class="gap-s grid grid-cols-[minmax(5rem,auto)_1fr]">
+            <dt class="font-bold">${schedule.day}</dt>
+            <dd>
+              ${schedule.hours
+                .split(" și ")
+                .map(
+                  (time, index, array) => `
+                ${time}
+                ${index < array.length - 1 ? '<span class="mx-xs text-muted">și</span>' : ""}
+              `,
+                )
+                .join("")}
+            </dd>
+          </div>
+        `,
+          )
+          .join("");
+
+        container.innerHTML = scheduleHtml;
+      })
+      .catch((error) => {
+        container.innerHTML = '<div class="text-red-500">Failed to load schedule</div>';
+        console.error("Error loading schedule:", error);
+      });
+  }
+</script>
