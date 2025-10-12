@@ -9,59 +9,46 @@
   <div
     class="p-m gap-xs flex flex-col"
     id="schedule-container"
-    data-endpoint="/api/schedule.json"
+    data-endpoint="https://script.google.com/macros/s/AKfycbznyNFX0j0t23zZWU217vnAZBDaM0qTsXRSmztuH8BnN9C3-P7I3qfOEGoFXx20w14l8g/exec"
   >
     <div class="animate-pulse">Loading...</div>
   </div>
 </dl>
 
 <script>
-(async () => {
   const container = document.getElementById("schedule-container");
   const endpoint = container?.dataset.endpoint;
-  if (!container || !endpoint) return;
 
-  const ctrl = new AbortController();
-  const tid = setTimeout(() => ctrl.abort(), 4500);
+  if (container && endpoint) {
+    fetch(endpoint)
+      .then((res) => res.json())
+      .then((data) => {
+        const scheduleHtml = data.data
+          .map(
+            (schedule: { day: string; hours: string }) => `
+          <div class="gap-s grid grid-cols-[minmax(5rem,auto)_1fr]">
+            <dt class="font-bold">${schedule.day}</dt>
+            <dd>
+              ${schedule.hours
+                .split(" și ")
+                .map(
+                  (time: string, index: number, array: string[]) => `
+                ${time}
+                ${index < array.length - 1 ? '<span class="mx-xs text-muted">și</span>' : ""}
+              `,
+                )
+                .join("")}
+            </dd>
+          </div>
+        `,
+          )
+          .join("");
 
-  try {
-    const res = await fetch(endpoint, { signal: ctrl.signal });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const { data } = await res.json();
-
-    container.textContent = '';
-    for (const { day, hours } of data) {
-      const row = document.createElement('div');
-      row.className = 'gap-s grid grid-cols-[minmax(5rem,auto)_1fr]';
-
-      const dt = document.createElement('dt');
-      dt.className = 'font-bold';
-      dt.textContent = day;
-
-      const dd = document.createElement('dd');
-      if (hours.includes(' și ')) {
-        const parts = hours.split(' și ');
-        parts.forEach((p, i) => {
-          dd.append(p);
-          if (i < parts.length - 1) {
-            const sep = document.createElement('span');
-            sep.className = 'mx-xs text-muted';
-            sep.textContent = 'și';
-            dd.append(sep);
-          }
-        });
-      } else {
-        dd.textContent = hours;
-      }
-
-      row.append(dt, dd);
-      container.append(row);
-    }
-  } catch (e) {
-    container.innerHTML = '<div class="text-red-500">Failed to load schedule</div>';
-    console.error('Error loading schedule:', e);
-  } finally {
-    clearTimeout(tid);
+        container.innerHTML = scheduleHtml;
+      })
+      .catch((error) => {
+        container.innerHTML = '<div class="text-red-500">Failed to load schedule</div>';
+        console.error("Error loading schedule:", error);
+      });
   }
-})();
 </script>

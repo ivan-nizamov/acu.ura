@@ -1,0 +1,20 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Timișoara",
+			"country": {
+				"code": "RO",
+				"name": "Romania"
+			},
+			"subdivision": {
+				"code": "TM",
+				"name": "Timiș County"
+			},
+			"timezone": "Europe/Bucharest",
+			"latitude": 45.7537,
+			"longitude": 21.2257,
+			"postalCode": "300600"
+		},
+		"timestamp": 1760288505947
+	}
+}
