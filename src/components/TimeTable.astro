@@ -41,7 +41,7 @@
       const dd = document.createElement('dd');
       if (hours.includes(' și ')) {
         const parts = hours.split(' și ');
-        parts.forEach((p: string, i: number) => {
+        parts.forEach((p, i) => {
           dd.append(p);
           if (i < parts.length - 1) {
             const sep = document.createElement('span');
