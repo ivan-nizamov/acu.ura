@@ -10,14 +10,14 @@
     pkgs = import nixpkgs { inherit system; };
   in {
     devShells.${system}.default = pkgs.mkShell {
-      packages = [
-        pkgs.nodejs_22
-        pkgs.nodePackages.pnpm
-	pkgs.deno
+      packages = with pkgs;[
+        bun
       ];
 
       shellHook = ''
-        echo "shadcn/ui dev shell loaded! Node: $(node --version), pnpm: $(pnpm --version)"
+        echo "dev shell loaded! bun: $(bun --version)"
+        bun install
+        bun run dev
       '';
     };
   };
