@@ -25,14 +25,14 @@
       .then((data) => {
         const scheduleHtml = data.data
           .map(
-            (schedule) => `
+            (schedule: { day: string; hours: string }) => `
           <div class="gap-s grid grid-cols-[minmax(5rem,auto)_1fr]">
             <dt class="font-bold">${schedule.day}</dt>
             <dd>
               ${schedule.hours
                 .split(" și ")
                 .map(
-                  (time, index, array) => `
+                  (time: string, index: number, array: string[]) => `
                 ${time}
                 ${index < array.length - 1 ? '<span class="mx-xs text-muted">și</span>' : ""}
               `,
