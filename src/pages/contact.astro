@@ -1,18 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TimeTable from '../components/TimeTable.astro';
-
-// Fetch schedule data server-side
-let scheduleData = null;
-try {
-  const response = await fetch(`${Astro.url.origin}/api/schedule.json`);
-  if (response.ok) {
-    const json = await response.json();
-    scheduleData = json.data;
-  }
-} catch (error) {
-  console.error('Failed to fetch schedule:', error);
-}
 ---
 
 <Layout>
@@ -33,5 +21,5 @@ try {
       >dr_dalibor_pavlisan@yahoo.com</a
     >
   </h3>
-  <TimeTable scheduleData={scheduleData} />
+  <TimeTable />
 </Layout>
