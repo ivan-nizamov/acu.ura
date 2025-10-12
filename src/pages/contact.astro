@@ -1,34 +1,47 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import TimeTable from "../components/TimeTable.astro";
+import Layout from '../layouts/Layout.astro';
+import TimeTable from '../components/TimeTable.astro';
 ---
 
 <Layout>
-  <h1 class="font-bold mb-4">Contact</h1>
-  <h3><strong>Adresă Cabinet:</strong> <a href="https://maps.app.goo.gl/osb3zHiCoyVGVgw89" class="pretty-link">Strada Teiului, Nr. 14, Timișoara</a></h3>
-  <h3><strong>Telefon:</strong> <a href="tel:+40741010889" class="pretty-link">+40 741 010 889</a></h3>
-  <h3><strong>Email:</strong> <a href="mailto:dr_dalibor_pavlisan@yahoo.com" class="pretty-link">dr_dalibor_pavlisan@yahoo.com</a></h3>
+  <h1 class="mb-4 font-bold">Contact</h1>
+  <h3>
+    <strong>Adresă Cabinet:</strong>
+    <a href="https://maps.app.goo.gl/osb3zHiCoyVGVgw89" class="pretty-link"
+      >Strada Teiului, Nr. 14, Timișoara</a
+    >
+  </h3>
+  <h3>
+    <strong>Telefon:</strong>
+    <a href="tel:+40741010889" class="pretty-link">+40 741 010 889</a>
+  </h3>
+  <h3>
+    <strong>Email:</strong>
+    <a href="mailto:dr_dalibor_pavlisan@yahoo.com" class="pretty-link"
+      >dr_dalibor_pavlisan@yahoo.com</a
+    >
+  </h3>
   <TimeTable
     schedule={[
       {
-        day: "Luni",
-        hours: ["9:00-13:00", "17:00-20:00"],
+        day: 'Luni',
+        hours: ['9:00-13:00', '17:00-20:00'],
       },
       {
-        day: "Marți",
-        hours: ["8:00-13:00"],
+        day: 'Marți',
+        hours: ['8:00-13:00'],
       },
       {
-        day: "Miercuri",
-        hours: ["17:00-20:00"],
+        day: 'Miercuri',
+        hours: ['17:00-20:00'],
       },
       {
-        day: "Joi",
-        hours: ["8:00-13:00"],
+        day: 'Joi',
+        hours: ['8:00-13:00'],
       },
       {
-        day: "Vineri",
-        hours: ["9:00-13:00", "17:00-20:00"],
+        day: 'Vineri',
+        hours: ['9:00-13:00', '17:00-20:00'],
       },
     ]}
   />

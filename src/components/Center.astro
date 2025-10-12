@@ -3,11 +3,10 @@
 ---
 
 <div
-  class="box-content           /* box-sizing: content-box */
-         mx-auto               /* margin-inline: auto */
-         w-[calc(100%-(var(--space-m)*2))]  /* width: calc(100% - (var(--space-xl) * 2)) */
-         max-w-[800px]         /* max-inline-size: 800px */
-         px-[var(--space-m)]" /* padding-inline: var(--space-xl) */
+  class="/* box-sizing: content-box */ /* margin-inline: auto */ /* width: calc(100% - (var(--space-xl) * 2)) */ /* max-inline-size: 800px */ mx-auto box-content w-[calc(100%-(var(--space-m)*2))] max-w-[800px] px-[var(--space-m)]"
+  style="
+    padding-inline: calc(var(--space-xl) * 1);
+  "
 >
   <slot />
 </div>

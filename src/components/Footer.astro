@@ -1,13 +1,16 @@
 ---
 // src/components/Footer.astro---
-import Center from "../components/Center.astro";
+import Center from '../components/Center.astro';
 ---
-<footer class="border-t-1 border-muted my-s">
-    <Center>
-        <div class="grid grid-cols-[repeat(auto-fit,minmax(var(--space-xl),1fr))] ap-s text-[var(--step--2)] py-s">
-            <a href="/contact" class="text-center">Contact</a>
-            <a href="/colophon" class="text-center">Colophon</a>
-        </div>
-        <!-- <p class="text-center text-xs">Copyright &copy; {new Date().getFullYear()} Dalibor. All rights reserved.</p> -->
-    </Center>
+
+<footer class="border-muted my-s border-t-1">
+  <Center>
+    <div
+      class="ap-s py-s grid grid-cols-[repeat(auto-fit,minmax(var(--space-xl),1fr))] text-[var(--step--2)]"
+    >
+      <a href="/contact" class="text-center">Contact</a>
+      <a href="/colophon" class="text-center">Colophon</a>
+    </div>
+    <!-- <p class="text-center text-xs">Copyright &copy; {new Date().getFullYear()} Dalibor. All rights reserved.</p> -->
+  </Center>
 </footer>

@@ -1,16 +1,24 @@
 /* Fonts & Tailwind */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Color scheme hints */
-:root { color-scheme: light; }
-@media (prefers-color-scheme: dark) { :root { color-scheme: dark; } }
+:root {
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
 /* Also force dark when .dark class is present */
-.dark { color-scheme: dark; }
+.dark {
+  color-scheme: dark;
+}
 
 @font-face {
-  font-family: "Maple Mono";
-  src: url("/fonts/MapleMono[wght].ttf") format("truetype");
+  font-family: 'Maple Mono';
+  src: url('/fonts/MapleMono[wght].ttf') format('truetype');
   font-weight: 300 800;
   font-style: normal;
   font-display: swap;
@@ -18,7 +26,6 @@
 
 /* Base tokens (CSS variables) and base styles */
 @layer base {
-
   /* Global heading spacing (don't use @apply with arbitrary values) */
   p {
     font-size: var(--step-0);
@@ -42,33 +49,33 @@
 
   :root {
     --font-serif: 'EB Garamond', serif;
-    --font-mono: "Maple Mono", monospace;
+    --font-mono: 'Maple Mono', monospace;
 
     /* utopia.fyi — Font sizes */
     --step--1: clamp(0.8889rem, 0.88rem + 0.0444vi, 0.9rem);
-    --step-0:  clamp(1rem, 0.9rem + 0.5vi, 1.125rem);
-    --step-1:  clamp(1.125rem, 0.9rem + 1.125vi, 1.4063rem);
-    --step-2:  clamp(1.2656rem, 0.8719rem + 1.9688vi, 1.7578rem);
-    --step-3:  clamp(1.4238rem, 0.8051rem + 3.0938vi, 2.1973rem);
-    --step-4:  clamp(1.6018rem, 0.686rem + 4.5791vi, 2.7466rem);
-    --step-5:  clamp(1.802rem, 0.4971rem + 6.5248vi, 3.4332rem);
-    --step-6:  clamp(2.0273rem, 0.2159rem + 9.057vi, 4.2915rem);
+    --step-0: clamp(1rem, 0.9rem + 0.5vi, 1.125rem);
+    --step-1: clamp(1.125rem, 0.9rem + 1.125vi, 1.4063rem);
+    --step-2: clamp(1.2656rem, 0.8719rem + 1.9688vi, 1.7578rem);
+    --step-3: clamp(1.4238rem, 0.8051rem + 3.0938vi, 2.1973rem);
+    --step-4: clamp(1.6018rem, 0.686rem + 4.5791vi, 2.7466rem);
+    --step-5: clamp(1.802rem, 0.4971rem + 6.5248vi, 3.4332rem);
+    --step-6: clamp(2.0273rem, 0.2159rem + 9.057vi, 4.2915rem);
 
     /* utopia.fyi — Spaces */
     --space-xs: clamp(0.75rem, 0.55rem + 1vw, 1rem);
-    --space-s:  clamp(1rem, 0.75rem + 1.25vw, 1.3125rem);
-    --space-m:  clamp(1.5rem, 1.1rem + 2vw, 2rem);
-    --space-l:  clamp(2rem, 1.5rem + 2.5vw, 2.625rem);
+    --space-s: clamp(1rem, 0.75rem + 1.25vw, 1.3125rem);
+    --space-m: clamp(1.5rem, 1.1rem + 2vw, 2rem);
+    --space-l: clamp(2rem, 1.5rem + 2.5vw, 2.625rem);
     --space-xl: clamp(3rem, 2.25rem + 3.75vw, 3.9375rem);
     --space-2xl: clamp(4rem, 3rem + 5vw, 5.25rem);
     --space-3xl: clamp(6rem, 4.5rem + 7.5vw, 7.875rem);
 
     /* One-up pairs */
-    --space-xs-s:    clamp(0.75rem, 0.3rem + 2.25vw, 1.3125rem);
-    --space-s-m:     clamp(1rem, 0.2rem + 4vw, 2rem);
-    --space-m-l:     clamp(1.5rem, 0.6rem + 4.5vw, 2.625rem);
-    --space-l-xl:    clamp(2rem, 0.45rem + 7.75vw, 3.9375rem);
-    --space-xl-2xl:  clamp(3rem, 1.2rem + 9vw, 5.25rem);
+    --space-xs-s: clamp(0.75rem, 0.3rem + 2.25vw, 1.3125rem);
+    --space-s-m: clamp(1rem, 0.2rem + 4vw, 2rem);
+    --space-m-l: clamp(1.5rem, 0.6rem + 4.5vw, 2.625rem);
+    --space-l-xl: clamp(2rem, 0.45rem + 7.75vw, 3.9375rem);
+    --space-xl-2xl: clamp(3rem, 1.2rem + 9vw, 5.25rem);
     --space-2xl-3xl: clamp(4rem, 0.9rem + 15.5vw, 7.875rem);
 
     /* Line heights */
@@ -103,24 +110,51 @@
 
   /* Page transition animations */
   @keyframes slideUpOut {
-    from { opacity: 1; transform: translateY(0); }
-    to   { opacity: 0; transform: translateY(calc(var(--transition-distance) * -1)); }
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(calc(var(--transition-distance) * -1));
+    }
   }
   @keyframes slideUpIn {
-    from { opacity: 0; transform: translateY(var(--transition-distance)); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(var(--transition-distance));
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   @keyframes slideDownOut {
-    from { opacity: 1; transform: translateY(0); }
-    to   { opacity: 0; transform: translateY(var(--transition-distance)); }
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(var(--transition-distance));
+    }
   }
   @keyframes slideDownIn {
-    from { opacity: 0; transform: translateY(calc(var(--transition-distance) * -1)); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(calc(var(--transition-distance) * -1));
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* Sensible defaults */
-  html { text-size-adjust: 100%; min-width: min-content;}
+  html {
+    text-size-adjust: 100%;
+    min-width: min-content;
+  }
   body {
     font-family: var(--font-serif);
     background-color: var(--surface);
@@ -136,12 +170,11 @@
     text-decoration-color: var(--muted);
     transition: all 0.2s ease-in-out;
   }
-  
+
   .pretty-link:hover {
     text-decoration-thickness: 3px;
     text-decoration-color: var(--text);
   }
-  
 }
 
 /* Tailwind design tokens (v4) */
@@ -149,20 +182,21 @@
   /* Fonts */
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
-
   /* Colors */
   --color-surface: var(--surface); /* bg-surface, border-surface, etc. */
   --color-text: var(--text); /* text-text */
   --color-muted: var(--muted); /* bg-muted, text-muted, etc. */
   --color-primary: var(--primary); /* bg-primary, text-primary, etc. */
   --color-primary-foreground: var(--primary-foreground); /* text-primary-foreground */
-  --color-link-hover: var(--link-hover); /* hover:text-link
+  --color-link-hover: var(
+    --link-hover
+  ); /* hover:text-link
 
   /* Spacing tokens so you can use mt-l, p-m, gap-xl, etc. in MARKUP */
   --spacing-xs: var(--space-xs);
-  --spacing-s:  var(--space-s);
-  --spacing-m:  var(--space-m);
-  --spacing-l:  var(--space-l);
+  --spacing-s: var(--space-s);
+  --spacing-m: var(--space-m);
+  --spacing-l: var(--space-l);
   --spacing-xl: var(--space-xl);
   --spacing-2xl: var(--space-2xl);
   --spacing-3xl: var(--space-3xl);

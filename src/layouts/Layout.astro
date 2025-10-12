@@ -1,37 +1,37 @@
 ---
-import { ClientRouter } from "astro:transitions";
-import Header from "../components/Header.astro";
-import Center from "../components/Center.astro";
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
+import { ClientRouter } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import Center from '../components/Center.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 
 const pageTransition = {
   forwards: {
     old: {
-      name: "slideUpOut",
-      duration: "var(--transition-duration)",
-      easing: "var(--transition-easing)",
-      fillMode: "forwards",
+      name: 'slideUpOut',
+      duration: 'var(--transition-duration)',
+      easing: 'var(--transition-easing)',
+      fillMode: 'forwards',
     },
     new: {
-      name: "slideUpIn",
-      duration: "var(--transition-duration)",
-      easing: "var(--transition-easing)",
-      fillMode: "forwards",
+      name: 'slideUpIn',
+      duration: 'var(--transition-duration)',
+      easing: 'var(--transition-easing)',
+      fillMode: 'forwards',
     },
   },
   backwards: {
     old: {
-      name: "slideDownOut",
-      duration: "var(--transition-duration)",
-      easing: "var(--transition-easing)",
-      fillMode: "forwards",
+      name: 'slideDownOut',
+      duration: 'var(--transition-duration)',
+      easing: 'var(--transition-easing)',
+      fillMode: 'forwards',
     },
     new: {
-      name: "slideDownIn",
-      duration: "var(--transition-duration)",
-      easing: "var(--transition-easing)",
-      fillMode: "forwards",
+      name: 'slideDownIn',
+      duration: 'var(--transition-duration)',
+      easing: 'var(--transition-easing)',
+      fillMode: 'forwards',
     },
   },
 };

@@ -8,6 +8,9 @@
         "astro": "^5.14.1",
         "tailwindcss": "^4.1.14",
       },
+      "devDependencies": {
+        "typescript": "^5.9.3",
+      },
     },
   },
   "packages": {

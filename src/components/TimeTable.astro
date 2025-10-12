@@ -9,25 +9,25 @@ interface Props {
 const { schedule } = Astro.props;
 ---
 
-<dl class="flex flex-col border border-muted rounded-xl overflow-hidden">
+<dl class="border-muted flex flex-col overflow-hidden rounded-xl border">
   <div class="bg-muted p-s">
-    <dt class="font-bold text-xl">Program de Lucru</dt>
+    <dt class="text-xl font-bold">Program de Lucru</dt>
   </div>
-  <div class="p-m flex flex-col gap-xs">
-    {schedule.map(({ day, hours }) => (
-      <div class="grid grid-cols-[minmax(5rem,auto)_1fr] gap-s">
-        <dt class="font-bold">{day}:</dt>
-        <dd>
-          {hours.map((time, index) => (
-            <>
-              {time}
-              {index < hours.length - 1 && (
-                <span class="mx-xs text-muted">și</span>
-              )}
-            </>
-          ))}
-        </dd>
-      </div>
-    ))}
+  <div class="p-m gap-xs flex flex-col">
+    {
+      schedule.map(({ day, hours }) => (
+        <div class="gap-s grid grid-cols-[minmax(5rem,auto)_1fr]">
+          <dt class="font-bold">{day}:</dt>
+          <dd>
+            {hours.map((time, index) => (
+              <>
+                {time}
+                {index < hours.length - 1 && <span class="mx-xs text-muted">și</span>}
+              </>
+            ))}
+          </dd>
+        </div>
+      ))
+    }
   </div>
 </dl>
