@@ -1,67 +1,36 @@
 ---
+interface Props {
+  scheduleData: Array<{ day: string; hours: string }> | null;
+}
 
+const { scheduleData } = Astro.props;
 ---
 
 <dl class="border-muted flex flex-col overflow-hidden rounded-xl border">
   <div class="bg-muted p-s">
     <dt class="text-xl font-bold">Program de Lucru</dt>
   </div>
-  <div
-    class="p-m gap-xs flex flex-col"
-    id="schedule-container"
-    data-endpoint="/api/schedule.json"
-  >
-    <div class="animate-pulse">Loading...</div>
+  <div class="p-m gap-xs flex flex-col">
+    {scheduleData ? (
+      scheduleData.map(({ day, hours }) => (
+        <div class="gap-s grid grid-cols-[minmax(5rem,auto)_1fr]">
+          <dt class="font-bold">{day}</dt>
+          <dd>
+            {hours.includes(' și ') ? (
+              hours.split(' și ').map((part, i, arr) => (
+                <>
+                  {part}
+                  {i < arr.length - 1 && <span class="mx-xs text-muted">și</span>}
+                </>
+              ))
+            ) : (
+              hours
+            )}
+          </dd>
+        </div>
+      ))
+    ) : (
+      <div class="text-red-500">Failed to load schedule</div>
+    )}
   </div>
 </dl>
-
-<script>
-(async () => {
-  const container = document.getElementById("schedule-container");
-  const endpoint = container?.dataset.endpoint;
-  if (!container || !endpoint) return;
-
-  const ctrl = new AbortController();
-  const tid = setTimeout(() => ctrl.abort(), 4500);
-
-  try {
-    const res = await fetch(endpoint, { signal: ctrl.signal });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const { data } = await res.json();
-
-    container.textContent = '';
-    for (const { day, hours } of data) {
-      const row = document.createElement('div');
-      row.className = 'gap-s grid grid-cols-[minmax(5rem,auto)_1fr]';
-
-      const dt = document.createElement('dt');
-      dt.className = 'font-bold';
-      dt.textContent = day;
-
-      const dd = document.createElement('dd');
-      if (hours.includes(' și ')) {
-        const parts = hours.split(' și ');
-        parts.forEach((p, i) => {
-          dd.append(p);
-          if (i < parts.length - 1) {
-            const sep = document.createElement('span');
-            sep.className = 'mx-xs text-muted';
-            sep.textContent = 'și';
-            dd.append(sep);
-          }
-        });
-      } else {
-        dd.textContent = hours;
-      }
-
-      row.append(dt, dd);
-      container.append(row);
-    }
-  } catch (e) {
-    container.innerHTML = '<div class="text-red-500">Failed to load schedule</div>';
-    console.error('Error loading schedule:', e);
-  } finally {
-    clearTimeout(tid);
-  }
-})();
-</script>
