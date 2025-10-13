@@ -11,13 +11,12 @@
   in {
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs;[
-        bun
         pnpm
       ];
 
       shellHook = ''
-        echo "dev shell loaded! bun: $(bun --version) pnpm: $(pnpm --version)"
-        bun install
+        echo "dev shell loaded! pnpm: $(pnpm --version)"
+        pnpm install
       '';
     };
   };

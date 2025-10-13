@@ -8,21 +8,33 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/image':
-        specifier: ^0.18.0
-        version: 0.18.0(astro@5.14.1(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.52.4)(typescript@5.9.3))(sharp@0.34.4)
       '@radix-ui/colors':
         specifier: ^3.0.0
         version: 3.0.0
+      '@tabler/icons':
+        specifier: ^3
+        version: 3.35.0
+      '@tailwindcss/forms':
+        specifier: ^0.5
+        version: 0.5.10(tailwindcss@4.1.14)
       '@tailwindcss/vite':
-        specifier: ^4.1.14
+        specifier: ^4
         version: 4.1.14(vite@6.3.6(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1))
       astro:
         specifier: ^5.14.1
         version: 5.14.1(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.52.4)(typescript@5.9.3)
+      tailwind-merge:
+        specifier: ^3
+        version: 3.3.1
+      tailwind-variants:
+        specifier: ^3
+        version: 3.1.1(tailwind-merge@3.3.1)(tailwindcss@4.1.14)
       tailwindcss:
-        specifier: ^4.1.14
+        specifier: ^4
         version: 4.1.14
+      tw-animate-css:
+        specifier: ^1
+        version: 1.4.0
     devDependencies:
       typescript:
         specifier: ^5.9.3
@@ -30,21 +42,8 @@ importers:
 
 packages:
 
-  '@altano/tiny-async-pool@1.0.3':
-    resolution: {integrity: sha512-B4lSen5B2M/aGtgQ12aJ9Ms4eZXCRtJMhM7p5KpAImPAeIaOojTWEKozIB/1xWwCLRZsy0SHW+OlOZQFOBOwJQ==}
-
   '@astrojs/compiler@2.13.0':
     resolution: {integrity: sha512-mqVORhUJViA28fwHYaWmsXSzLO9osbdZ5ImUfxBarqsYdMlPbqAqGJCxsNzvppp1BEzc1mJNjOVvQqeDN8Vspw==}
-
-  '@astrojs/image@0.18.0':
-    resolution: {integrity: sha512-IAsECAGG5s0u7KItQMVVfhU8gAkIeIlzoSga6LymLvWvTWJacjxtnRYjct5uR03kuxIYAdjZhwQowKR1bYpwDA==}
-    deprecated: '@astrojs/image is deprecated in favor of astro:assets. Please see the migration guide for more information: https://docs.astro.build/en/guides/upgrade-to/v3/\#removed-astrojsimage'
-    peerDependencies:
-      astro: ^2.10.15
-      sharp: '>=0.31.0'
-    peerDependenciesMeta:
-      sharp:
-        optional: true
 
   '@astrojs/internal-helpers@0.7.3':
     resolution: {integrity: sha512-6Pl0bQEIChuW5wqN7jdKrzWfCscW2rG/Cz+fzt4PhSQX2ivBpnhXgFUCs0M3DCYvjYHnPVG2W36X5rmFjZ62sw==}
@@ -534,6 +533,14 @@ packages:
   '@swc/helpers@0.5.17':
     resolution: {integrity: sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A==}
 
+  '@tabler/icons@3.35.0':
+    resolution: {integrity: sha512-yYXe+gJ56xlZFiXwV9zVoe3FWCGuZ/D7/G4ZIlDtGxSx5CGQK110wrnT29gUj52kEZoxqF7oURTk97GQxELOFQ==}
+
+  '@tailwindcss/forms@0.5.10':
+    resolution: {integrity: sha512-utI1ONF6uf/pPNO68kmN1b8rEwNXv3czukalo8VtJH8ksIkZXr3Q3VYudZLkCsDd4Wku120uF02hYK25XGPorw==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20 || >= 4.0.0-beta.1'
+
   '@tailwindcss/node@4.1.14':
     resolution: {integrity: sha512-hpz+8vFk3Ic2xssIA3e01R6jkmsAhvkQdXlEbRTk6S10xDAtiQiM3FyvZVGsucefq764euO/b8WUW9ysLdThHw==}
 
@@ -955,16 +962,8 @@ packages:
   http-cache-semantics@4.2.0:
     resolution: {integrity: sha512-dTxcvPXqPvXBQpq5dUr6mEMJX4oIEFv6bwom3FDwKRDsuIjjJGANqhBuoAn9c1RQJIdAKav33ED65E2ys+87QQ==}
 
-  image-size@1.2.1:
-    resolution: {integrity: sha512-rH+46sQJ2dlwfjfhCyNx5thzrv+dtmBIhPHk0zgRUukHzZ/kRueTJXoYYsclBaKcSMBWuGbOFXtioLpzTb5euw==}
-    engines: {node: '>=16.x'}
-    hasBin: true
-
   import-meta-resolve@4.2.0:
     resolution: {integrity: sha512-Iqv2fzaTQN28s/FwZAoFq0ZSs/7hMAHJVX+w8PZl3cY19Pxk6jFFalxQoIfW2826i/fDLXv8IiEZRIT0lDuWcg==}
-
-  inherits@2.0.4:
-    resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
   iron-webcrypto@1.2.1:
     resolution: {integrity: sha512-feOM6FaSr6rEABp/eDfVseKyTMDt+KGpeB35SkVn9Tyn0CqvVsY3EwI0v5i8nMHyJnzCIQf7nsy3p41TPkJZhg==}
@@ -1212,9 +1211,8 @@ packages:
   micromark@4.0.2:
     resolution: {integrity: sha512-zpe98Q6kvavpCr1NPVSCMebCKfD7CA2NqZ+rykeNhONIJBpc1tFKt9hucLGwha3jNTNI8lHpctWJWoimVF4PfA==}
 
-  mime@3.0.0:
-    resolution: {integrity: sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==}
-    engines: {node: '>=10.0.0'}
+  mini-svg-data-uri@1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
 
   minipass@7.1.2:
@@ -1328,9 +1326,6 @@ packages:
   property-information@7.1.0:
     resolution: {integrity: sha512-TwEZ+X+yCJmYfL7TPUOcvBZ4QfoT5YenQiJuX//0th53DE6w0xxLEtfK3iyryQFddXuvkIk51EEgrJQ0WJkOmQ==}
 
-  queue@6.0.2:
-    resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
-
   radix3@1.1.2:
     resolution: {integrity: sha512-b484I/7b8rDEdSDKckSSBA8knMpcdsXudlE/LNL639wFoHKwLbEkQFZHWEYwDC0wa0FKUcCY+GAF73Z7wxNVFA==}
 
@@ -1440,6 +1435,19 @@ packages:
     resolution: {integrity: sha512-gmBGslpoQJtgnMAvOVqGZpEz9dyoKTCzy2nfz/n8aIFhN/jCE/rCmcxabB6jOOHV+0WNnylOxaxBQPSvcWklhA==}
     engines: {node: '>=12'}
 
+  tailwind-merge@3.3.1:
+    resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
+
+  tailwind-variants@3.1.1:
+    resolution: {integrity: sha512-ftLXe3krnqkMHsuBTEmaVUXYovXtPyTK7ckEfDRXS8PBZx0bAUas+A0jYxuKA5b8qg++wvQ3d2MQ7l/xeZxbZQ==}
+    engines: {node: '>=16.x', pnpm: '>=7.x'}
+    peerDependencies:
+      tailwind-merge: '>=3.0.0'
+      tailwindcss: '*'
+    peerDependenciesMeta:
+      tailwind-merge:
+        optional: true
+
   tailwindcss@4.1.14:
     resolution: {integrity: sha512-b7pCxjGO98LnxVkKjaZSDeNuljC4ueKUddjENJOADtubtdo8llTaJy7HwBMeLNSSo2N5QIAgklslK1+Ir8r6CA==}
 
@@ -1482,6 +1490,9 @@ packages:
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
+  tw-animate-css@1.4.0:
+    resolution: {integrity: sha512-7bziOlRqH0hJx80h/3mbicLW7o8qLsH5+RaLR2t+OHM3D0JlWGODQKQ4cxbK7WlvmUxpcj6Kgu6EKqjrGFe3QQ==}
 
   type-fest@4.41.0:
     resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
@@ -1725,21 +1736,7 @@ packages:
 
 snapshots:
 
-  '@altano/tiny-async-pool@1.0.3': {}
-
   '@astrojs/compiler@2.13.0': {}
-
-  '@astrojs/image@0.18.0(astro@5.14.1(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.52.4)(typescript@5.9.3))(sharp@0.34.4)':
-    dependencies:
-      '@altano/tiny-async-pool': 1.0.3
-      astro: 5.14.1(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.52.4)(typescript@5.9.3)
-      http-cache-semantics: 4.2.0
-      image-size: 1.2.1
-      kleur: 4.1.5
-      magic-string: 0.30.19
-      mime: 3.0.0
-    optionalDependencies:
-      sharp: 0.34.4
 
   '@astrojs/internal-helpers@0.7.3': {}
 
@@ -2115,6 +2112,13 @@ snapshots:
   '@swc/helpers@0.5.17':
     dependencies:
       tslib: 2.8.1
+
+  '@tabler/icons@3.35.0': {}
+
+  '@tailwindcss/forms@0.5.10(tailwindcss@4.1.14)':
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: 4.1.14
 
   '@tailwindcss/node@4.1.14':
     dependencies:
@@ -2647,13 +2651,7 @@ snapshots:
 
   http-cache-semantics@4.2.0: {}
 
-  image-size@1.2.1:
-    dependencies:
-      queue: 6.0.2
-
   import-meta-resolve@4.2.0: {}
-
-  inherits@2.0.4: {}
 
   iron-webcrypto@1.2.1: {}
 
@@ -3055,7 +3053,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  mime@3.0.0: {}
+  mini-svg-data-uri@1.4.4: {}
 
   minipass@7.1.2: {}
 
@@ -3151,10 +3149,6 @@ snapshots:
   property-information@6.5.0: {}
 
   property-information@7.1.0: {}
-
-  queue@6.0.2:
-    dependencies:
-      inherits: 2.0.4
 
   radix3@1.1.2: {}
 
@@ -3367,6 +3361,14 @@ snapshots:
     dependencies:
       ansi-regex: 6.2.2
 
+  tailwind-merge@3.3.1: {}
+
+  tailwind-variants@3.1.1(tailwind-merge@3.3.1)(tailwindcss@4.1.14):
+    dependencies:
+      tailwindcss: 4.1.14
+    optionalDependencies:
+      tailwind-merge: 3.3.1
+
   tailwindcss@4.1.14: {}
 
   tapable@2.3.0: {}
@@ -3399,6 +3401,8 @@ snapshots:
       typescript: 5.9.3
 
   tslib@2.8.1: {}
+
+  tw-animate-css@1.4.0: {}
 
   type-fest@4.41.0: {}
 
