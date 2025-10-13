@@ -24,8 +24,8 @@
         const scheduleHtml = data.data
           .map(
             (schedule) => `
-              <dt class="text-step-2 font-semibold">${schedule.day}</dt>
-              <dd class="text-step-2 font-semibold tabular-nums">
+              <dt class="text-step-1 font-semibold">${schedule.day}</dt>
+              <dd class="text-step-1 font-semibold tabular-nums">
                 ${schedule.hours
                   .split(" și ")
                   .map((time, i, arr) => `

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://starwind.dev/config-schema.json",
+  "tailwind": {
+    "css": "src/styles/starwind.css",
+    "baseColor": "neutral",
+    "cssVariables": true
+  },
+  "componentDir": "src/components",
+  "components": [
+    {
+      "name": "separator",
+      "version": "1.0.0"
+    },
+    {
+      "name": "item",
+      "version": "1.0.0"
+    }
+  ]
+}
