@@ -16,9 +16,17 @@
 
 @font-face {
   font-family: 'Maple Mono';
-  src: url('/fonts/MapleMono[wght].ttf') format('truetype');
+  src: url('../fonts/MapleMono[wght].ttf') format('truetype');
   font-weight: 300 800;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Maple Mono';
+  src: url('../fonts/MapleMono-Italic[wght].ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -139,4 +147,3 @@
   --radius-l: variables(--spacing-m);
   --radius-full: 9999px;
 }
-
