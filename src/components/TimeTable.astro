@@ -3,46 +3,52 @@
     <dt class="text-step-2 font-bold">Program de Lucru</dt>
   </div>
 
-  <!-- Make the container a 2-col grid with a fixed first column -->
   <div
     id="schedule-container"
-    class="p-m grid gap-x-s gap-y-xs grid-cols-[clamp(7ch,20vw,15ch)_1fr]"
+    class="p-m grid gap-x-s gap-y-1 [grid-template-columns:minmax(9ch,14ch)_1fr] items-baseline max-w-full"
     data-endpoint="https://script.google.com/macros/s/AKfycbznyNFX0j0t23zZWU217vnAZBDaM0qTsXRSmztuH8BnN9C3-P7I3qfOEGoFXx20w14l8g/exec"
   >
     <div class="animate-pulse text-step-2 font-bold col-span-2">Imediat...</div>
   </div>
 </dl>
 
+<style>
+  /* 1) Kill UA indent on <dd> and margins */
+  #schedule-container dt,
+  #schedule-container dd { margin: 0; }
+  #schedule-container dd { margin-inline-start: 0; }
+
+  /* 2) Right-align labels and paint a consistent colon */
+  #schedule-container dt { text-align: right; }
+  #schedule-container dt::after { content: ":"; margin-inline: .5ch 0; }
+
+  /* 3) Make times align visually */
+  #schedule-container dd { font-variant-numeric: tabular-nums; white-space: nowrap; }
+</style>
+
 <script>
   const container = document.getElementById("schedule-container");
   const endpoint = container?.dataset.endpoint;
 
+  const renderHours = (hours) =>
+    (hours || "")
+      .split(" și ")
+      .map(seg => seg.trim().replace(/\s*-\s*/g, "–"))
+      .map(seg => `<span class="whitespace-nowrap">${seg}</span>`)
+      .join('<span class="px-1">și</span>') || '<span class="opacity-70">Închis</span>';
+
   if (container && endpoint) {
     fetch(endpoint)
-      .then((res) => res.json())
-      .then((data) => {
-        const scheduleHtml = data.data
-          .map(
-            (schedule) => `
-              <dt class="text-step-1 font-semibold">${schedule.day}</dt>
-              <dd class="text-step-1 font-semibold tabular-nums">
-                ${schedule.hours
-                  .split(" și ")
-                  .map((time, i, arr) => `
-                    ${time}${i < arr.length - 1 ? '<span class="mx-xs text-text text-step-2"> și </span>' : ""}
-                  `)
-                  .join("")}
-              </dd>
-            `
-          )
-          .join("");
-
-        container.innerHTML = scheduleHtml;
+      .then(res => res.json())
+      .then(({ data = [] }) => {
+        container.innerHTML = data.map(({ day, hours }) => `
+          <dt class="text-step-1 leading-tight">${day}</dt>
+          <dd class="text-step-1 leading-tight">${renderHours(hours)}</dd>
+        `).join("");
       })
-      .catch((error) => {
+      .catch(() => {
         container.innerHTML =
           '<div class="text-red-500 text-step-2 font-bold col-span-2">Failed to load schedule</div>';
-        console.error("Error loading schedule:", error);
       });
   }
 </script>
