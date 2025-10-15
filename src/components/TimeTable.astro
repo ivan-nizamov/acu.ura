@@ -1,14 +1,15 @@
-<dl class="border-muted flex flex-col overflow-hidden rounded-xl border mt-2xl ">
+<dl class="border-muted flex flex-col text-step-2 overflow-hidden rounded-xl border mt-2xl ">
   <div class="bg-muted p-s justify-center border-b border-muted flex">
     <dt class="text-step-2 font-bold">Program de Lucru</dt>
   </div>
 
   <div
-    id="schedule-container"
-    class="p-m grid gap-x-s gap-y-1 [grid-template-columns:minmax(9ch,14ch)_1fr] items-baseline max-w-full"
-    data-endpoint="https://script.google.com/macros/s/AKfycbznyNFX0j0t23zZWU217vnAZBDaM0qTsXRSmztuH8BnN9C3-P7I3qfOEGoFXx20w14l8g/exec"
-  >
-    <div class="animate-pulse text-step-2 font-bold col-span-2">Imediat...</div>
+  id="schedule-container"
+  class="w-fit mx-auto p-m grid gap-x-s gap-y-1 [grid-template-columns:minmax(9ch,14ch)_1fr] items-baseline"
+  data-endpoint="https://script.google.com/macros/s/AKfycbznyNFX0j0t23zZWU217vnAZBDaM0qTsXRSmztuH8BnN9C3-P7I3qfOEGoFXx20w14l8g/exec"
+
+>
+    <div class="animate-pulse text-step-2 font-bold col-span-2">Se incarca...</div>
   </div>
 </dl>
 
@@ -42,13 +43,13 @@
       .then(res => res.json())
       .then(({ data = [] }) => {
         container.innerHTML = data.map(({ day, hours }) => `
-          <dt class="text-step-1 leading-tight">${day}</dt>
-          <dd class="text-step-1 leading-tight">${renderHours(hours)}</dd>
+          <dt class="font-semibold">${day}</dt>
+          <dd>${renderHours(hours)}</dd>
         `).join("");
       })
       .catch(() => {
         container.innerHTML =
-          '<div class="text-red-500 text-step-2 font-bold col-span-2">Failed to load schedule</div>';
+          '<div class="text-red-500 text-step-2 font-bold col-span-2">Eroare... Reinnoiti pagina.</div>';
       });
   }
 </script>
