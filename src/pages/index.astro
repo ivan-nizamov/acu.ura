@@ -1,9 +1,6 @@
 ---
-import { Item, ItemContent, ItemTitle, ItemDescription, ItemActions } from "@/components/starwind/item";
-import ChevronRight from "@tabler/icons/outline/chevron-right.svg";
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import ace from '../assets/ace.png';
+import Schedule_button from '../components/Schedule-button.astro';
 ---
 
 <Layout>
@@ -20,22 +17,5 @@ import ace from '../assets/ace.png';
     În cabinetul nostru, fiecare pacientă devine o cale spre echilibru. Combinăm experiența, atenția
     și înțelegerea profundă a energiei corpului pentru a sprijini procesul tău natural de vindecare.
   </p>
-
-  
-<Item
-  variant="outline"
-  as="a"
-  href="#"
-  size="sm"
-  class="grid grid-cols-[1fr_auto] items-start gap-4"
->
-  <ItemContent class="min-w-0">
-    <ItemTitle class="text-step-2 leading-snug">Programează-te aici.</ItemTitle>
-    <ItemDescription class="text-pretty">Începe drumul spre echilibru!</ItemDescription>
-  </ItemContent>
-  <ItemActions class="ms-2 shrink-0 self-center">
-    <ChevronRight class="size-5" />
-  </ItemActions>
-</Item>
-
+  <Schedule_button />
 </Layout>

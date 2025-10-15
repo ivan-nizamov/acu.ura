@@ -98,6 +98,7 @@
 
   /* Colors */
   --color-text: var(--gold-12);
+  --color-secondary-text: var(--gold-11);
   --color-muted: var(--gold-7);
   --color-bg: var(--gold-1);
 

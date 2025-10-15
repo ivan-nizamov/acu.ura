@@ -1,0 +1,18 @@
+---
+import { Item, ItemContent, ItemTitle, ItemDescription, ItemActions } from "@/components/starwind/item";
+import ChevronRight from "@tabler/icons/outline/chevron-right.svg";
+---
+<Item
+  variant="outline"
+  as="a"
+  href="/contact"
+  class="grid grid-cols-[1fr_auto] items-start gap-4"
+>
+  <ItemContent>
+    <ItemTitle class="text-step-2">Programează o Consultație</ItemTitle>
+    <ItemDescription class="text-pretty text-secondary-text">Începe drumul spre echilibru!</ItemDescription>
+  </ItemContent>
+  <ItemActions class="self-center">
+    <ChevronRight class="size-5" />
+  </ItemActions>
+</Item>
