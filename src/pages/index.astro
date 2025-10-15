@@ -2,9 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import ace from '../assets/ace.png';
-import { Item, ItemContent, ItemTitle, ItemDescription, ItemActions, ItemMedia } from "@/components/starwind/item";
-import CircleCheck from "@tabler/icons/outline/circle-check.svg";
-import ChevronRight from "@tabler/icons/outline/chevron-right.svg";
+import { Item, ItemContent, ItemTitle, ItemDescription, ItemActions} from "@/components/starwind/item";
+import { Button } from "@/components/starwind/button";
 ---
 
 <Layout>
@@ -26,15 +25,14 @@ import ChevronRight from "@tabler/icons/outline/chevron-right.svg";
     și înțelegerea profundă a energiei corpului pentru a sprijini procesul tău natural de vindecare.
   </p>
 
-  <Item variant="outline" size="lg" as="a" href="/contact">
-  <ItemMedia>
-    <CircleCheck class="size-5" />
-  </ItemMedia>
+  
+<Item variant="outline">
   <ItemContent>
-    <ItemTitle>Fi sigma!</ItemTitle>
+    <ItemTitle>Incepeti drumul spre echilibru</ItemTitle>
+    <ItemDescription>A simple item with title and description.</ItemDescription>
   </ItemContent>
   <ItemActions>
-    <ChevronRight class="size-4" />
+    <Button variant="outline" size="sm">Action</Button>
   </ItemActions>
 </Item>
 </Layout>

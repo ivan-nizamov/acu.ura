@@ -12,7 +12,7 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
    * Size of the item
    * @default "default"
    */
-  size?: "default" | "sm" | "lg";
+  size?: "default" | "sm";
 };
 
 export const item = tv({
@@ -30,7 +30,6 @@ export const item = tv({
     size: {
       default: "gap-4 p-4",
       sm: "gap-2.5 px-4 py-3",
-      lg: "gap-5 p-5 text-xl",
     },
   },
   defaultVariants: {
