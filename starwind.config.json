@@ -18,6 +18,14 @@
     {
       "name": "button",
       "version": "2.2.0"
+    },
+    {
+      "name": "carousel",
+      "version": "1.0.0"
+    },
+    {
+      "name": "card",
+      "version": "1.3.0"
     }
   ]
 }

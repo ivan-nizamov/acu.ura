@@ -12,10 +12,11 @@
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs;[
         pnpm
+        nodejs_24
       ];
 
       shellHook = ''
-        echo "dev shell loaded! pnpm: $(pnpm --version)"
+        echo "dev shell loaded! node: $(node --version)"
         pnpm install
       '';
     };
