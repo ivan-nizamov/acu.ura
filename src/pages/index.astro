@@ -1,21 +1,57 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Schedule_button from '../components/Schedule-button.astro';
+
+const seoTitle = "Acupunctură Timișoara | Dr. Dalibor Pavlisan | Soluții Naturale pentru Sănătate | Terapia cu venin de albine";
+const seoDescription = "Activează-ți puterea de autovindecare prin acupunctură și terapii complementare în cadrul  Cabinetului medical de Acupunctură şi Homeopatie Dr. Pavlişan Dalibor din Timișoara. Abordare holistică pentru durere, echilibru și vindecare naturală.";
 ---
 
-<Layout>
+<Layout title={seoTitle} description={seoDescription}>
   <h1 class="mt-xs mb-0">
-    Sănătatea și Echilibrul Natural cu
-    <a href="/about" class="pretty-link ">
-      Dr. Dalibor Pavlişan
-    </a>
+    Sănătate și Echilibru Natural în Timișoara cu <a href="/about" class="pretty-link">Dr. Dalibor Pavlisan</a>
   </h1>
-    <h2 class="font-medium">
-    Un pacient la un moment. Tratament creat pentru tine.
+  <h2 class="font-medium">
+    Redescoperă-ți Puterea de Vindecare prin Acupunctură și Terapii Integrative.
   </h2>
   <p>
-    În cabinetul nostru, fiecare pacientă devine o cale spre echilibru. Combinăm experiența, atenția
-    și înțelegerea profundă a energiei corpului pentru a sprijini procesul tău natural de vindecare.
+    Activează-ți puterea de autovindecare prin acupunctură și terapii complementare în cadrul Cabinetului medical de Acupunctură şi Homeopatie Dr. Pavlişan Dalibor din Timișoara. Abordarea noastră holistică pune accent pe echilibru, prevenție și grijă personalizată pentru fiecare pacient.
   </p>
-  <Schedule_button />
+
+  <section class="mt-l">
+    <h2>Bine ați venit!</h2>
+    <p>
+      Bun venit la cabinetul Dr. Dalibor Pavlişan din Timișoara, locul unde sănătatea și bunăstarea dumneavoastră sunt prioritățile noastre! Sunt Dr. Dalibor Pavlişan și, în calitate de medic atestat în Acupunctură și Terapii Complementare, vă ofer o abordare holistică și personalizată pentru a vă redobândi echilibrul fizic, emoțional și mental. Fie că vă confruntați cu dureri cronice, stres, anxietate sau doriți să investiți în prevenție și vitalitate, vă invit să descoperiți beneficiile metodelor naturale de vindecare.
+    </p>
+  </section>
+
+  <section class="mt-l">
+    <h2>De ce să ne alegi?</h2>
+    <ul class="list-disc space-y-2 pl-l">
+      <li><strong>Abordare Holistică Integrativă:</strong> Tratăm persoana, nu doar boala, combinând expertiza medicală cu terapiile complementare.</li>
+      <li><strong>Intimitate și Siguranță:</strong> Un singur pacient în camera de tratament, folosind ace sterile de unică folosință.</li>
+      <li><strong>Experiență și Specializare:</strong> Dr. Dalibor Pavlisan, medic primar cu multiple certificări (Acupunctură, Homeopatie, Psihoterapie, Apiterapie, Fitoterapie, Aromaterapie, Terapie Florală Bach, Magnetoterapie, Medicină de familie).</li>
+      <li><strong>Soluții Naturale:</strong> Alternativă la medicamentele de sinteză, stimulând capacitatea naturală de autovindecare a corpului.</li>
+      <li><strong>Localizare:</strong> Cabinet de acupunctură în Timișoara, ușor accesibil.</li>
+    </ul>
+  </section>
+
+  <a class="pretty-link mt-l" href="/services">
+    <h2>Serviciile noastre principale</h2>
+  </a>
+
+  <section class="mt-l">
+    <h2>Ce spun pacienții noștri</h2>
+    <p>
+      „Am descoperit o abordare atentă și caldă, iar durerea cronică de spate s-a redus semnificativ după câteva ședințe. Recomand cu încredere cabinetul Dr. Pavlisan tuturor celor care caută soluții naturale.”
+    </p>
+    <a href="/contact" class="pretty-link">Solicită mai multe testimoniale</a>
+  </section>
+
+  <section class="mt-l">
+    <h2>Fă primul pas</h2>
+    <p>
+      Nu lăsa durerea sau dezechilibrul să îți controleze viața. Contactează-ne pentru o programare și descoperă cum acupunctura și terapiile integrative te pot ajuta să revii la starea ta naturală de bine.
+    </p>
+    <Schedule_button />
+  </section>
 </Layout>

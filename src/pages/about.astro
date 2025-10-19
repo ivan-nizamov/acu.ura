@@ -1,26 +1,38 @@
 ---
+import ScheduleButton from '@/components/Schedule-button.astro';
 import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "Dr. Dalibor Pavlisan - Medic Acupunctor Timișoara | Abordare Holistică";
+const seoDescription = "Află mai multe despre Dr. Dalibor Pavlisan, specialist în acupunctură și terapii complementare în Timișoara. Experiență și dedicare pentru sănătatea ta.";
 ---
 
-<Layout>
-  <h1 class="mb-0 font-bold">Dr. Dalibor Pavlişan</h1>
-  <h2>Dedicat pentru Sănătatea și Echilibrul Dumneavoastră</h2>
+<Layout title={seoTitle} description={seoDescription}>
+  <h1 class="mb-0 font-bold">Dr. Dalibor Pavlisan: Dedicat pentru Sănătatea și Echilibrul Dumneavoastră</h1>
+  <h2>Despre mine</h2>
   <p>
-    Sunt Dr. Dalibor Pavlișan, medic primar Medicină de Familie, cu specializare în acupunctură și terapii complementare. Lucrez 1-la-1, cu protocoale personalizate și ace sterile de unică folosință, pentru a sprijini mecanismele naturale de vindecare ale organismului.
+    Sunt Dr. Dalibor Pavlisan, medic primar Medicină de Familie cu o pasiune profundă pentru medicina integrativă și terapiile complementare. De-a lungul anilor de practică medicală, am înțeles că adevărata vindecare implică o abordare a întregii ființe umane – corp, minte și spirit. De aceea, am ales să îmi dedic cariera explorării și aplicării unor metode terapeutice care activează resursele naturale de autovindecare ale organismului.
   </p>
-  <h2 >De ce abordare integrativă</h2>
+
+  <h2>Parcurs profesional și filosofie</h2>
   <p>
-    Corpul, mintea și emoțiile sunt interconectate. În loc să tratez doar simptomul, caut cauza, combinând metode validate în timp (acupunctură, moxibustie, Su Jok, electroacupunctură) cu intervenții blânde și complementare (<a class="pretty-link" href="/terapii">apipunctură/venin de albine cu test de sensibilitate, homeomezoterapie, fitoterapie, aromaterapie, Terapia Florală Bach, psihoterapie integrativă <a/>). Rezultatul: planuri adaptate pe nevoia ta, cu accent pe siguranță și eficacitate.
+    În anul 2003 am absolvit Facultatea de Medicină Generală din cadrul Universităţii de Medicină şi Farmacie „Victor Babeş” din Timişoara. A urmat stagiatura și apoi rezidenţiatul, devenind medic specialist Medicină de Familie în anul 2006. Cu o bază solidă în medicina clasică, m-am specializat în acupunctură, recunoscând-o ca pe o cale eficientă de restaurare a fluxului energetic vital. Experiența mea include diverse ramuri ale acupuncturii, de la Acupunctura Clasică Chineză la Su Jok, Moxibustie, ElectroAcupunctură, precum și tehnici inovatoare precum Homeomezoterapie și Apipunctură.
   </p>
-  <h2>Cum lucrăm împreună</h2>
-    <dl class="list-disc text-step-2">
-      <dt>➢ Consultație inițială.</dt>
-        <dd>Discutăm istoricul, obiectivele și factorii de stil de viață.</dd>
-      <dt>➢ Plan personalizat.</dt> 
-        <dd>Alegem tehnicile potrivite (de la acupunctură la suport psiho-emoțional).</dd>
-      <dt>➢ Ședințe 1-la-1.</dt> 
-        <dd>Proceduri în ritm sigur și confortabil, cu monitorizarea răspunsului.</dd>
-      <dt>➢ Urmărire și ajustare.</dt>
-        <dd>Ajustăm protocolul în funcție de progresul tău.</dd>
-    </dl>
-  </Layout>
+  <p>
+    Dincolo de aspectele fizice, sunt un susținător convins al interconectării dintre minte și corp. Specializarea mea în Psihoterapie Integrativă, alături de cunoștințele aprofundate în Homeopatie, Apiterapie, Fitoterapie, Aromaterapie și Terapie Florală Bach, îmi permit să ofer o perspectivă amplă și instrumente personalizate pentru gestionarea stresului, a emoțiilor și pentru atingerea echilibrului psiho-emoțional.
+  </p>
+  <p>
+    Fiecare pacient este unic, iar la cabinetul meu din Timișoara, vă asigur un spațiu de tratament dedicat, unde intimitatea și siguranța sunt esențiale. Lucrez individual cu fiecare persoană, folosind doar ace sterile de unică folosință și adaptând protocolul terapeutic nevoilor specifice ale dumneavoastră.
+  </p>
+
+  <h2>Misiunea mea</h2>
+  <p>
+    Misiunea mea este să vă ghidez pe drumul spre o sănătate optimă, să vă ajut să înțelegeți și să stimulați propriile mecanisme de autovindecare și să vă ofer instrumente practice pentru o viață echilibrată și plină de vitalitate. Cred cu tărie în puterea naturii și a înțelepciunii străvechi de a ne readuce armonia.
+  </p>
+
+  <h2>Invitație</h2>
+  <p>
+    Vă aștept la cabinetul meu din Timișoara pentru a începe împreună călătoria spre o stare de bine durabilă. Descoperiți <a href="/services" class="pretty-link">terapiile</a> care pot susține obiectivele dumneavoastră de sănătate și dați-vă voie să vă reconectați cu echilibrul interior.
+  </p>
+
+<ScheduleButton/>
+</Layout>

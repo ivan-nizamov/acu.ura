@@ -1,28 +1,55 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Schedule_button from '../components/Schedule-button.astro';
-import Therapy_carousel from '../components/Therapy-carousel.astro';
 import ServicesMenu from "@/components/ServicesMenu.astro";
 
 // Импортируем изображения как модули (astro:assets оптимизирует их)
-import hair from "@/assets/services/hair.jpg";
+import apipuncutura from "@/assets/services/apipunctura.webp"
+import moxibustie from "@/assets/services/moxibustie.webp";
+import electroacupunctura from "@/assets/services/electroacupunctura.webp"
+import magnetic from "@/assets/services/magnetic.webp"
+import homeo from "@/assets/services/homeo.webp"
+import clasic from "@/assets/services/clasic.webp"
 import head from "@/assets/services/head.jpg";
-import salt from "@/assets/services/salt.jpg";
-import cupping from "@/assets/services/cupping.jpg";
-import moxi from "@/assets/services/moxi.jpg";
-import swedish from "@/assets/services/swedish.jpg";
-import samurai from "@/assets/services/samurai.jpg";
-import auriculo from "@/assets/services/auriculo.jpg";
 
 const services = [
-  { title: "Hair Transplant Treatment", blurb: "Maecenas nec odio et ante tincidunt", price: 45, image: hair },
-  { title: "Headaches Treatments", blurb: "Maecenas nec odio et ante tincidunt", price: 32, image: head },
-  { title: "Salt Therapy Session", blurb: "Maecenas nec odio et ante tincidunt", price: 80, image: salt },
-  { title: "Cupping Therapy", blurb: "Maecenas nec odio et ante tincidunt", price: 87, image: cupping },
-  { title: "Moxibustion", blurb: "Maecenas nec odio et ante tincidunt", price: 35, image: moxi },
-  { title: "Swedish Massage", blurb: "Maecenas nec odio et ante tincidunt", price: 46, image: swedish },
-  { title: "Samurai Massage", blurb: "Maecenas nec odio et ante tincidunt", price: 67, image: samurai },
-  { title: "Auriculoterapia", blurb: "Maecenas nec odio et ante tincidunt", price: 65, image: auriculo },
+  {
+    title: "Acupunctură Clasică Chineză",
+    blurb: "Restabilește fluxul energetic (Qi) și stimulează mecanismele naturale de vindecare ale corpului prin utilizarea acelor fine, sterile.",
+    price: "La cerere",
+    image: clasic,
+  },
+  {
+    title: "Moxibustie",
+    blurb: "Aplicarea căldurii controlate cu pelin pentru a încălzi meridianele, a elimina frigul și a relaxa musculatura.",
+    price: "La cerere",
+    image: moxibustie,
+  },
+  {
+    title: "ElectroAcupunctură",
+    blurb: "Combină acupunctura tradițională cu stimulare electrică blândă pentru rezultate eficiente în controlul durerii și relaxarea musculară.",
+    price: "La cerere",
+    image: electroacupunctura,
+  },
+  {
+    title: "Homeomezoterapie",
+    blurb: "Remedii homeopatice injectate în zonele țintite pentru efecte rapide asupra durerii și inflamației.",
+    price: "La cerere",
+    image: homeo,
+  },
+  {
+    title: "Apipunctură",
+    blurb: "Venin de albine aplicat terapeutic pe punctele de acupunctură sub supraveghere medicală specializată.",
+    price: "La cerere",
+    image: apipuncutura,
+  },
+  {
+    title: "Magnetic Pair Therapy",
+    blurb: "Câmpuri magnetice plasate pe punctele energetice pentru a susține circulația și regenerarea.",
+    price: "La cerere",
+    image: magnetic,
+  },
+
 ];
 
 const seoTitle = 'Servicii Acupunctură Timișoara | Terapie cu venin de albine- Apipunctură';
@@ -32,7 +59,7 @@ const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dali
 <Layout title={seoTitle} description={seoDescription}>
   
   <h1>
-    Terapiile Noastre Integrative: O Abordare Completa pentru Sănătatea Ta
+    Terapiile Noastre Integrative: O Abordare Completă pentru Sănătatea Ta
   </h1>
   <p class="text-step-2 mb-10">
     La cabinetul medical Dr. Dalibor Pavlișan din Timișoara, vă punem la dispoziție o paletă extinsă de terapii validate medical şi ştiințific, pentru o varietate mare de afecțiuni și pentru promovarea starii generale de bine. Fiecare tratament este personalizat și integrat într-un plan terapeutic adaptat nevoilor dumneavoastră individuale.
@@ -47,7 +74,7 @@ const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dali
     <p class="text-step-2 mb-6">
       Acupunctura Su Jok, o ramură a acupuncturii, ce se concentrează pe punctele reflexe de pe mâini și picioare, oferind o abordare complementară eficientă.
     </p>
-    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <h3>Beneficii</h3>
     <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
       <li>Reducerea durerii (cronică, acută)</li>
       <li>Ameliorarea stressului și anxietății</li>
@@ -62,7 +89,7 @@ const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dali
     <p class="text-step-2 mb-6">
       Moxibustia implică arderea plantei Artemisia vulgaris (pelin) aproape de suprafața pielii, pe anumite puncte de acupunctură. Căldura generată pătrunde în profunzime, stimulând circulația sângelui și a energiei, încălzind meridianele și eliminând frigul și umezeala din corp. Este deosebit de utilă în condiții de deficit energetic sau dureri agravate de frig.
     </p>
-    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <h3>Beneficii</h3>
     <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
       <li>Încălzire și relaxare musculară</li>
       <li>Ameliorarea durerilor articulare și musculare</li>
@@ -76,7 +103,7 @@ const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dali
     <p class="text-step-2 mb-6">
       Această tehnică modernă combină acupunctura tradițională cu stimularea electrică blândă a acelor. Curenții electrici de joasă frecvență amplifică efectul terapeutic al acupuncturii, fiind deosebit de eficientă în gestionarea durerii, relaxarea musculară și stimularea nervoasă.
     </p>
-    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <h3>Beneficii</h3>
     <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
       <li>Reducerea intensă a durerii</li>
       <li>Decontractură musculară</li>
@@ -90,10 +117,10 @@ const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dali
     <p class="text-step-2 mb-6">
       O metodă inovatoare ce presupune injectarea unor remedii homeopatice specifice direct în punctele de acupunctură sau în zonele afectate. Această abordare maximizează efectul terapeutic al ambelor discipline, oferind o acțiune rapidă și profundă.
     </p>
-    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <h3>Beneficii</h3>
     <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
       <li>Tratament localizat al durerii</li>
-      <li>Reducerea inflamației</li>
+      <li>Inflamației</li>
       <li>Regenerare tisulară</li>
       <li>Efecte detoxifiante</li>
     </ul>
@@ -104,7 +131,7 @@ const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dali
     <p class="text-step-2 mb-6">
       Apipunctura utilizează veninul de albine pentru a stimula punctele de acupunctură. Veninul de albine, cunoscut pentru proprietățile sale antiinflamatorii și imunomodulatoare, este aplicat cu precauție și sub stricta supraveghere medicală, fiind o terapie eficientă în anumite afecțiuni, inclusiv reumatismale.
     </p>
-    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <h3>Beneficii</h3>
     <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
       <li>Efecte antiinflamatorii</li>
       <li>Efecte imunomodulatoare</li>
@@ -120,7 +147,7 @@ const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dali
     <p class="text-step-2 mb-6">
       O metodă non-invazivă și fără durere, care folosește câmpuri magnetice pentru a influența fluxul energetic al corpului. Magneții sunt aplicați pe puncte de acupunctură, ajutând la echilibrarea energetică, reducerea durerii și accelerarea proceselor de vindecare.
     </p>
-    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <h3>Beneficii</h3>
     <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
       <li>Non-invaziv și fără durere</li>
       <li>Reduce durerea</li>
@@ -134,7 +161,7 @@ const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dali
     <p class="text-step-2 mb-6">
       Această terapie inovatoare identifică și neutralizează dezechilibrele de pH din organism prin aplicarea unor magneți de polaritate diferită pe anumite zone ale corpului. Corectarea pH-ului contribuie la eliminarea agenților patogeni și la restabilirea funcționării optime a organelor.
     </p>
-    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <h3>Beneficii</h3>
     <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
       <li>Corectarea dezechilibrelor de pH</li>
       <li>Susținerea sistemului imunitar</li>
@@ -147,7 +174,7 @@ const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dali
     <p class="text-step-2 mb-6">
       Pe lângă specializarea în acupunctură, abordarea Dr. Pavlisan include și consiliere și aplicarea principiilor din Psihoterapie Integrativă, Homeopatie, Apiterapie, Fitoterapie, Aromaterapie și Terapie Florală Bach. Acestea sunt integrate strategic pentru a oferi un plan de tratament complet, adresând atât simptomele fizice, cât și cauzele emoționale sau energetice ale dezechilibrelor.
     </p>
-    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <h3>Beneficii</h3>
     <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
       <li>Echilibru psiho-emoțional</li>
       <li>Gestionarea stresului</li>

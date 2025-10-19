@@ -58,6 +58,8 @@
     font-size: var(--text-step-2);
     margin-top: var(--spacing-s);
     margin-bottom: var(--spacing-m);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-snug);
   }
    p {
     font-size: var(--text-step-2);
