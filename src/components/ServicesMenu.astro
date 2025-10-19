@@ -11,93 +11,49 @@ export interface Service {
 
 interface Props {
   services: Service[];
-  heading?: string;
 }
 
-const { services, heading = "Our Services" } = Astro.props;
+const { services } = Astro.props;
 
-// чётные/нечётные — в разные колонки
-const left  = services.filter((_, i) => i % 2 === 0);
-const right = services.filter((_, i) => i % 2 === 1);
+const allServices = services;
 ---
 
 <section
   aria-labelledby="services-heading"
-  class="relative mx-auto max-w-6xl rounded-3xl border border-black/5 bg-gradient-to-tr from-neutral-50 to-white/40 p-4 sm:p-6 md:p-10 shadow-sm"
+  class="space-y-6"
 >
-  <h2 id="services-heading" class="sr-only">{heading}</h2>
-
-  <div class="grid gap-6 md:grid-cols-2">
-    {/** COLUMN **/}
-    <ul role="list" class="divide-y divide-black/5 rounded-2xl bg-white/50 p-2 backdrop-blur">
-      {left.map((s) => (
-        <li class="flex items-center gap-4 p-4">
+  <div class="full-bleed box-border px-l md:px-xl">
+    <ul
+      role="list"
+      class="grid grid-cols-1 gap-y-8 md:grid-cols-2 md:gap-x-12 md:gap-y-10"
+    >
+      {allServices.map((s) => (
+        <li class="flex h-full items-start gap-4">
           <div class="shrink-0">
             <Image
               src={s.image}
               alt={s.title}
               width={80}
               height={80}
-              class="size-16 rounded-full object-cover ring-1 ring-black/10"
+              class="size-16 rounded-full object-cover"
               format="webp"
             />
           </div>
-
           <div class="min-w-0 flex-1">
-            <h3 class="text-base font-semibold tracking-tight text-neutral-900">
-              {s.title}
-            </h3>
-            <p class="text-sm text-neutral-500 line-clamp-2">
+            <div class="flex flex-wrap items-baseline gap-y-2 gap-x-4">
+              <h3 class="min-w-0 flex-1 text-step-3 my-0 font-semibold tracking-tight text-neutral-900">
+                {s.title}
+              </h3>
+              <span class="shrink-0 text-step-2 font-semibold tabular-nums text-neutral-800">
+                {typeof s.price === "number" ? `${s.price} Lei` : s.price}
+              </span>
+            </div>
+            <p class="mt-2 text-step-1 text-neutral-700">
               {s.blurb}
             </p>
-          </div>
-
-          <div class="pl-3 text-right">
-            <span class="text-xl font-semibold tabular-nums text-neutral-700">
-              ${s.price}
-            </span>
-          </div>
-        </li>
-      ))}
-    </ul>
-
-    {/** COLUMN **/}
-    <ul role="list" class="divide-y divide-black/5 rounded-2xl bg-white/50 p-2 backdrop-blur">
-      {right.map((s) => (
-        <li class="flex items-center gap-4 p-4">
-          <div class="shrink-0">
-            <Image
-              src={s.image}
-              alt={s.title}
-              width={80}
-              height={80}
-              class="size-16 rounded-full object-cover ring-1 ring-black/10"
-              format="webp"
-            />
-          </div>
-
-          <div class="min-w-0 flex-1">
-            <h3 class="text-base font-semibold tracking-tight text-neutral-900">
-              {s.title}
-            </h3>
-            <p class="text-sm text-neutral-500 line-clamp-2">
-              {s.blurb}
-            </p>
-          </div>
-
-          <div class="pl-3 text-right">
-            <span class="text-xl font-semibold tabular-nums text-neutral-700">
-              ${s.price}
-            </span>
           </div>
         </li>
       ))}
     </ul>
   </div>
-
-  {/** лёгкий декоративный фон **/}
-  <div
-    aria-hidden="true"
-    class="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-[radial-gradient(60rem_30rem_at_10%_-10%,rgba(0,0,0,0.04),transparent),radial-gradient(40rem_20rem_at_90%_110%,rgba(0,0,0,0.04),transparent)]"
-  />
 </section>
