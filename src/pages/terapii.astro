@@ -2,19 +2,42 @@
 import Layout from '../layouts/Layout.astro';
 import Schedule_button from '../components/Schedule-button.astro';
 import Therapy_carousel from '../components/Therapy-carousel.astro';
+import ServicesMenu from "@/components/ServicesMenu.astro";
+
+// Импортируем изображения как модули (astro:assets оптимизирует их)
+import hair from "@/assets/services/hair.jpg";
+import head from "@/assets/services/head.jpg";
+import salt from "@/assets/services/salt.jpg";
+import cupping from "@/assets/services/cupping.jpg";
+import moxi from "@/assets/services/moxi.jpg";
+import swedish from "@/assets/services/swedish.jpg";
+import samurai from "@/assets/services/samurai.jpg";
+import auriculo from "@/assets/services/auriculo.jpg";
+
+const services = [
+  { title: "Hair Transplant Treatment", blurb: "Maecenas nec odio et ante tincidunt", price: 45, image: hair },
+  { title: "Headaches Treatments", blurb: "Maecenas nec odio et ante tincidunt", price: 32, image: head },
+  { title: "Salt Therapy Session", blurb: "Maecenas nec odio et ante tincidunt", price: 80, image: salt },
+  { title: "Cupping Therapy", blurb: "Maecenas nec odio et ante tincidunt", price: 87, image: cupping },
+  { title: "Moxibustion", blurb: "Maecenas nec odio et ante tincidunt", price: 35, image: moxi },
+  { title: "Swedish Massage", blurb: "Maecenas nec odio et ante tincidunt", price: 46, image: swedish },
+  { title: "Samurai Massage", blurb: "Maecenas nec odio et ante tincidunt", price: 67, image: samurai },
+  { title: "Auriculoterapia", blurb: "Maecenas nec odio et ante tincidunt", price: 65, image: auriculo },
+];
 
 const seoTitle = 'Servicii Acupunctură Timișoara | Terapie cu venin de albine- Apipunctură';
 const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dalibor Pavlisan în Timișoara: acupunctură clasică, Su Jok, electroacupunctură, apipunctură și multe altele.';
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
+  
   <h1>
     Terapiile Noastre Integrative: O Abordare Completa pentru Sănătatea Ta
   </h1>
   <p class="text-step-2 mb-10">
     La cabinetul medical Dr. Dalibor Pavlișan din Timișoara, vă punem la dispoziție o paletă extinsă de terapii validate medical şi ştiințific, pentru o varietate mare de afecțiuni și pentru promovarea starii generale de bine. Fiecare tratament este personalizat și integrat într-un plan terapeutic adaptat nevoilor dumneavoastră individuale.
   </p>
-  <Therapy_carousel />
+  <ServicesMenu services={services} />
 
   <section class="my-20">
     <h2 id="acupunctura-clasica-chineza" class="text-3xl font-bold mb-4">Acupunctura Clasică Chineză</h2>
