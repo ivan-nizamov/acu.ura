@@ -2,51 +2,143 @@
 import Layout from '../layouts/Layout.astro';
 import Schedule_button from '../components/Schedule-button.astro';
 import Therapy_carousel from '../components/Therapy-carousel.astro';
+
+const seoTitle = 'Servicii Acupunctură Timișoara | Terapie cu venin de albine- Apipunctură';
+const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dalibor Pavlisan în Timișoara: acupunctură clasică, Su Jok, electroacupunctură, apipunctură și multe altele.';
 ---
 
-<Layout>
-    <h1>
-        Terapiile oferite
-    </h1>
-    <Therapy_carousel />
-    <section class="my-20">
-  <h2 id="beneficii" class="text-3xl font-bold mb-4">Beneficii ale Tratamentului</h2>
-  <p class="text-step-2 mb-6">
-    Tratamentul pe care îl oferim se bazează pe principii naturale și personalizate. 
-    Fiecare protocol este adaptat pacientului în parte, pentru a stimula mecanismele naturale 
-    de vindecare, a reduce inflamația și a promova echilibrul hormonal și energetic.
+<Layout title={seoTitle} description={seoDescription}>
+  <h1>
+    Terapiile Noastre Integrative: O Abordare Completa pentru Sănătatea Ta
+  </h1>
+  <p class="text-step-2 mb-10">
+    La cabinetul medical Dr. Dalibor Pavlișan din Timișoara, vă punem la dispoziție o paletă extinsă de terapii validate medical şi ştiințific, pentru o varietate mare de afecțiuni și pentru promovarea starii generale de bine. Fiecare tratament este personalizat și integrat într-un plan terapeutic adaptat nevoilor dumneavoastră individuale.
   </p>
-</section>
+  <Therapy_carousel />
 
-<section class="my-20">
-  <h2 id="procedures" class="text-3xl font-bold mb-4">Proceduri & Servicii</h2>
-  <p class="text-step-2 mb-6">
-    De la terapii fizice, suplimente naturale, evaluări de laborator și coaching holistic — 
-    toate sunt integrate pluridisciplinar. Colaborăm cu specialiști în nutriție, fizioterapie 
-    și psihoterapie pentru un protocol holistic.
-  </p>
-</section>
+  <section class="my-20">
+    <h2 id="acupunctura-clasica-chineza" class="text-3xl font-bold mb-4">Acupunctura Clasică Chineză</h2>
+    <p class="text-step-2 mb-6">
+      Bazată pe principii milenare, acupunctura este o metodă recunoscută pentru reechilibrare energetică. Prin stimularea unor puncte specifice ale corpului cu ace fine, sterile, ajutăm la deblocarea fluxului de energie (Qi) și la activarea mecanismelor naturale de vindecare.
+    </p>
+    <p class="text-step-2 mb-6">
+      Acupunctura Su Jok, o ramură a acupuncturii, ce se concentrează pe punctele reflexe de pe mâini și picioare, oferind o abordare complementară eficientă.
+    </p>
+    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
+      <li>Reducerea durerii (cronică, acută)</li>
+      <li>Ameliorarea stressului și anxietății</li>
+      <li>Îmbunătățirea somnului</li>
+      <li>Susținerea sistemului imunitar</li>
+      <li>Echilibru hormonal</li>
+    </ul>
+  </section>
 
-<section class="my-20">
-  <h2 id="testimonials" class="text-3xl font-bold mb-4">Mărturii ale Pacienților</h2>
-  <p class="text-step-2 mb-6">
-    „După șase luni am simțit o revitalizare completă — mult mai clară, mai energică, fără 
-    dureri.” – Maria  
-    <br />
-    „Tratamentul mi-a redat încrederea în propria mea putere de vindecare.” – Andrei  
-    <br />
-    Iar fiecare caz este documentat cu evoluții reale și recenzii video ale pacienților.
-  </p>
-</section>
+  <section class="my-20">
+    <h2 id="moxibustie" class="text-3xl font-bold mb-4">Moxibustie</h2>
+    <p class="text-step-2 mb-6">
+      Moxibustia implică arderea plantei Artemisia vulgaris (pelin) aproape de suprafața pielii, pe anumite puncte de acupunctură. Căldura generată pătrunde în profunzime, stimulând circulația sângelui și a energiei, încălzind meridianele și eliminând frigul și umezeala din corp. Este deosebit de utilă în condiții de deficit energetic sau dureri agravate de frig.
+    </p>
+    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
+      <li>Încălzire și relaxare musculară</li>
+      <li>Ameliorarea durerilor articulare și musculare</li>
+      <li>Creșterea vitalității</li>
+      <li>Întărirea imunității</li>
+    </ul>
+  </section>
 
-<section class="my-20">
-  <h2 id="contact" class="text-3xl font-bold mb-4">Contact & Întrebări</h2>
-  <p class="text-step-2 mb-6">
-    Ai întrebări despre protocol, costuri, durata sau compatibilitatea cu tratamente existente? 
-    Ne poți lăsa un mesaj sau ne poți suna pentru o evaluare preliminară gratuită.  
-    Vom răspunde prompt și vom clarifica toate nelămuririle tale.
-  </p>
-</section>
+  <section class="my-20">
+    <h2 id="electroacupunctura" class="text-3xl font-bold mb-4">ElectroAcupunctură</h2>
+    <p class="text-step-2 mb-6">
+      Această tehnică modernă combină acupunctura tradițională cu stimularea electrică blândă a acelor. Curenții electrici de joasă frecvență amplifică efectul terapeutic al acupuncturii, fiind deosebit de eficientă în gestionarea durerii, relaxarea musculară și stimularea nervoasă.
+    </p>
+    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
+      <li>Reducerea intensă a durerii</li>
+      <li>Decontractură musculară</li>
+      <li>Recuperare post-traumatică</li>
+      <li>Tratamentul neuropatiilor</li>
+    </ul>
+  </section>
 
-    <Schedule_button />
+  <section class="my-20">
+    <h2 id="homeomezoterapie" class="text-3xl font-bold mb-4">Homeomezoterapie</h2>
+    <p class="text-step-2 mb-6">
+      O metodă inovatoare ce presupune injectarea unor remedii homeopatice specifice direct în punctele de acupunctură sau în zonele afectate. Această abordare maximizează efectul terapeutic al ambelor discipline, oferind o acțiune rapidă și profundă.
+    </p>
+    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
+      <li>Tratament localizat al durerii</li>
+      <li>Reducerea inflamației</li>
+      <li>Regenerare tisulară</li>
+      <li>Efecte detoxifiante</li>
+    </ul>
+  </section>
+
+  <section class="my-20">
+    <h2 id="apipunctura" class="text-3xl font-bold mb-4">Apipunctura</h2>
+    <p class="text-step-2 mb-6">
+      Apipunctura utilizează veninul de albine pentru a stimula punctele de acupunctură. Veninul de albine, cunoscut pentru proprietățile sale antiinflamatorii și imunomodulatoare, este aplicat cu precauție și sub stricta supraveghere medicală, fiind o terapie eficientă în anumite afecțiuni, inclusiv reumatismale.
+    </p>
+    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
+      <li>Efecte antiinflamatorii</li>
+      <li>Efecte imunomodulatoare</li>
+      <li>Ameliorarea durerilor reumatice și articulare</li>
+    </ul>
+    <p class="text-sm italic text-neutral-600 mt-4">
+      Mențiune importantă: în cadrul cabinetului se va testa sensibilitatea pacientului la venin de albine.
+    </p>
+  </section>
+
+  <section class="my-20">
+    <h2 id="stimularea-punctelor-cu-magneti" class="text-3xl font-bold mb-4">Stimularea Punctelor cu Magneți</h2>
+    <p class="text-step-2 mb-6">
+      O metodă non-invazivă și fără durere, care folosește câmpuri magnetice pentru a influența fluxul energetic al corpului. Magneții sunt aplicați pe puncte de acupunctură, ajutând la echilibrarea energetică, reducerea durerii și accelerarea proceselor de vindecare.
+    </p>
+    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
+      <li>Non-invaziv și fără durere</li>
+      <li>Reduce durerea</li>
+      <li>Îmbunătățește circulația locală</li>
+      <li>Contribuie la echilibrul energetic</li>
+    </ul>
+  </section>
+
+  <section class="my-20">
+    <h2 id="biomagnetic-pair-therapy" class="text-3xl font-bold mb-4">Biomagnetic Pair Therapy (Terapia cu Perechi Biomagnetice)</h2>
+    <p class="text-step-2 mb-6">
+      Această terapie inovatoare identifică și neutralizează dezechilibrele de pH din organism prin aplicarea unor magneți de polaritate diferită pe anumite zone ale corpului. Corectarea pH-ului contribuie la eliminarea agenților patogeni și la restabilirea funcționării optime a organelor.
+    </p>
+    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
+      <li>Corectarea dezechilibrelor de pH</li>
+      <li>Susținerea sistemului imunitar</li>
+      <li>Ameliorarea simptomelor în diverse afecțiuni cronice</li>
+    </ul>
+  </section>
+
+  <section class="my-20">
+    <h2 id="terapii-complementare-integrate" class="text-3xl font-bold mb-4">Terapii Complementare Integrate</h2>
+    <p class="text-step-2 mb-6">
+      Pe lângă specializarea în acupunctură, abordarea Dr. Pavlisan include și consiliere și aplicarea principiilor din Psihoterapie Integrativă, Homeopatie, Apiterapie, Fitoterapie, Aromaterapie și Terapie Florală Bach. Acestea sunt integrate strategic pentru a oferi un plan de tratament complet, adresând atât simptomele fizice, cât și cauzele emoționale sau energetice ale dezechilibrelor.
+    </p>
+    <h3 class="text-lg font-semibold uppercase tracking-wide">Beneficii</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
+      <li>Echilibru psiho-emoțional</li>
+      <li>Gestionarea stresului</li>
+      <li>Remedii naturale personalizate</li>
+      <li>Susținerea bunăstării generale</li>
+    </ul>
+  </section>
+
+  <section class="my-20">
+    <h2 id="apel-la-actiune" class="text-3xl font-bold mb-4">Află ce terapie ți se potrivește!</h2>
+    <p class="text-step-2 mb-6">
+      Programează o discuție cu Dr. Dalibor Pavlisan. Suntem gata să analizăm istoricul și obiectivele tale pentru a configura împreună planul terapeutic optim.
+    </p>
+  </section>
+
+  <Schedule_button />
 </Layout>

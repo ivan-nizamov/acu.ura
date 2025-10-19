@@ -9,34 +9,86 @@ import {
 } from "@/components/starwind/carousel";
 ---
 
-<div class="
-  mx-auto w-full px-xl
-">
-  <Carousel opts={{ align: "start", loop: "true" }}>
+<div class="mx-auto w-full px-xl">
+  <Carousel id="therapy-carousel" opts={{ align: "start", loop: true }}>
     <CarouselContent>
       <CarouselItem class="md:basis-1/2 lg:basis-1/3">
         <div class="p-1">
           <Card>
-            <CardContent class="flex aspect-square items-center justify-center p-6">
-              <h3><a href="#beneficii">Beneficii</a></h3>
+            <CardContent class="flex aspect-square items-center justify-center p-6 text-center">
+              <h3><a href="#acupunctura-clasica-chineza">Acupunctura Clasică Chineză</a></h3>
             </CardContent>
           </Card>
         </div>
       </CarouselItem>
-            <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
         <div class="p-1">
           <Card>
-            <CardContent class="flex aspect-square items-center justify-center p-6">
-              <h3><a>Heading two</a></h3>
+            <CardContent class="flex aspect-square items-center justify-center p-6 text-center">
+              <h3><a href="#moxibustie">Moxibustie</a></h3>
             </CardContent>
           </Card>
         </div>
       </CarouselItem>
-            <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
         <div class="p-1">
           <Card>
-            <CardContent class="flex aspect-square items-center justify-center p-6">
-              <h3><a>Heading three</a></h3>
+            <CardContent class="flex aspect-square items-center justify-center p-6 text-center">
+              <h3><a href="#electroacupunctura">Electro-Acupunctură</a></h3>
+            </CardContent>
+          </Card>
+        </div>
+      </CarouselItem>
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+        <div class="p-1">
+          <Card>
+            <CardContent class="flex aspect-square items-center justify-center p-6 text-center">
+              <h3><a href="#homeomezoterapie">Homeomezoterapie</a></h3>
+            </CardContent>
+          </Card>
+        </div>
+      </CarouselItem>
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+        <div class="p-1">
+          <Card>
+            <CardContent class="flex aspect-square items-center justify-center p-6 text-center">
+              <h3><a href="#apipunctura">Apipunctura</a></h3>
+            </CardContent>
+          </Card>
+        </div>
+      </CarouselItem>
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+        <div class="p-1">
+          <Card>
+            <CardContent class="flex aspect-square items-center justify-center p-6 text-center">
+              <h3><a href="#stimularea-punctelor-cu-magneti">Stimularea Punctelor cu Magneți</a></h3>
+            </CardContent>
+          </Card>
+        </div>
+      </CarouselItem>
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+        <div class="p-1">
+          <Card>
+            <CardContent class="flex aspect-square items-center justify-center p-6 text-center">
+              <h3><a href="#biomagnetic-pair-therapy">Biomagnetic Pair Therapy</a></h3>
+            </CardContent>
+          </Card>
+        </div>
+      </CarouselItem>
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+        <div class="p-1">
+          <Card>
+            <CardContent class="flex aspect-square items-center justify-center p-6 text-center">
+              <h3><a href="#terapii-complementare-integrate">Terapii Complementare Integrate</a></h3>
+            </CardContent>
+          </Card>
+        </div>
+      </CarouselItem>
+      <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+        <div class="p-1">
+          <Card>
+            <CardContent class="flex aspect-square items-center justify-center p-6 text-center">
+              <h3><a href="#apel-la-actiune">Află Ce Terapie Ți Se Potrivește</a></h3>
             </CardContent>
           </Card>
         </div>
@@ -53,7 +105,7 @@ import {
   import { initCarousel } from "@/components/starwind/carousel";
 
   function initAutoplayCarousel() {
-    const carouselElement = document.getElementById("carousel-autoplay");
+    const carouselElement = document.getElementById("therapy-carousel");
     if (!carouselElement) return;
     initCarousel(carouselElement, {
       plugins: [

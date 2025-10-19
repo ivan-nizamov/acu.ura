@@ -6,6 +6,8 @@ import Footer from '../components/Footer.astro';
 import "@/styles/starwind.css";
 import '@/styles/global.css';
 
+const { title = 'Astro Demo', description } = Astro.props;
+
 const pageTransition = {
   forwards: {
     old: {
@@ -44,7 +46,8 @@ const pageTransition = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Demo</title>
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
     <ClientRouter />
   </head>
   <body>
