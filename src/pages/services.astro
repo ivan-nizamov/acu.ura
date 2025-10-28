@@ -2,96 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Schedule_button from '../components/Schedule-button.astro';
 import ServicesMenu from "@/components/ServicesMenu.astro";
+import { services as servicesData } from "@/data/services";
 
-// Импортируем изображения как модули (astro:assets оптимизирует их)
-import apipuncutura from "@/assets/services/apipunctura.webp"
-import moxibustie from "@/assets/services/moxibustie.webp";
-import electroacupunctura from "@/assets/services/electroacupunctura.webp"
-import biomagnetic_pair_therapy from "@/assets/services/magnetic.webp"
-import homeomezoterapie from "@/assets/services/homeomezoterapie.webp"
-import acupunctura_clasica from "@/assets/services/acupunctura_clasica.webp"
-import sujok from "@/assets/services/sujok.webp"
-import apiterapie from "@/assets/services/apiterapie.webp"
-import fitoterapie from "@/assets/services/fitoterapie.webp"
-import homeopatie from "@/assets/services/homeopatie.webp"
-import terapie_florala_bach from "@/assets/services/terapie_florala_bach.webp"
-import aromaterapie from "@/assets/services/aromaterapie.webp"
-
-const services = [
-  {
-    title: "Acupunctură Clasică Chineză",
-    blurb: "Restabilește fluxul energetic (Qi) și stimulează mecanismele naturale de vindecare ale corpului prin utilizarea acelor fine, sterile.",
-    price: "La cerere",
-    image: acupunctura_clasica,
-  },
-  {
-    title: "Su Jok",
-    blurb: "PLACEHOLDER",
-    price: "La cerere",
-    image: sujok,
-  },
-  {
-    title: "Moxibustie",
-    blurb: "Aplicarea căldurii controlate cu pelin pentru a încălzi meridianele, a elimina frigul și a relaxa musculatura.",
-    price: "La cerere",
-    image: moxibustie,
-  },
-  {
-    title: "ElectroAcupunctură",
-    blurb: "Combină acupunctura tradițională cu stimulare electrică blândă pentru rezultate eficiente în controlul durerii și relaxarea musculară.",
-    price: "La cerere",
-    image: electroacupunctura,
-  },
-  {
-    title: "Homeomezoterapie",
-    blurb: "Remedii homeopatice injectate în zonele țintite pentru efecte rapide asupra durerii și inflamației.",
-    price: "La cerere",
-    image: homeomezoterapie,
-  },
-  {
-    title: "Apipunctură",
-    blurb: "Venin de albine aplicat terapeutic pe punctele de acupunctură sub supraveghere medicală specializată.",
-    price: "La cerere",
-    image: apipuncutura,
-  },
-  {
-    title: "Biomagnetic Pair Therapy",
-    blurb: "Câmpuri magnetice plasate pe punctele energetice pentru a susține circulația și regenerarea.",
-    price: "La cerere",
-    image: biomagnetic_pair_therapy,
-  },
-  {
-    title: "Homeopatie",
-    blurb: "PLACEHOLDER",
-    price: "La cerere",
-    image: homeopatie,
-  },
-    {
-    title: "Apiterapie",
-    blurb: "PLACEHOLDER",
-    price: "La cerere",
-    image: apiterapie,
-  },
-  {
-    title: "Fitoterapie",
-    blurb: "PLACEHOLDER",
-    price: "La cerere",
-    image: fitoterapie,
-  },
-  {
-    title: "Aromaterapie",
-    blurb: "PLACEHOLDER",
-    price: "La cerere",
-    image: aromaterapie,
-  },
-  {
-    title: "Terapie Florală Bach",
-    blurb: "PLACEHOLDER",
-    price: "La cerere",
-    image: terapie_florala_bach,
-  },
-
-];
+const services = servicesData;
 
 const seoTitle = 'Servicii Acupunctură Timișoara | Terapie cu venin de albine- Apipunctură';
 const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dalibor Pavlisan în Timișoara: acupunctură clasică, Su Jok, electroacupunctură, apipunctură și multe altele.';
@@ -161,7 +74,7 @@ const seoDescription = 'Descoperă gama completă de terapii oferite de Dr. Dali
     <h3>Beneficii</h3>
     <ul class="mt-2 list-disc space-y-1 pl-6 text-step-1">
       <li>Tratament localizat al durerii</li>
-      <li>Inflamației</li>
+      <li>Reducerea inflamației</li>
       <li>Regenerare tisulară</li>
       <li>Efecte detoxifiante</li>
     </ul>

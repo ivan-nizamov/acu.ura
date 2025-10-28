@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+import Schedule_button from "@/components/Schedule-button.astro";
+import { services, type ServiceDefinition } from "@/data/services";
+
+export async function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+interface Props {
+  service: ServiceDefinition;
+}
+
+const { service } = Astro.props as Props;
+
+const seoTitle = `${service.title} | Cabinet Dr. Dalibor Pavlișan`;
+const seoDescription = service.blurb;
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <article class="space-y-12">
+    <header class="space-y-6">
+      <a href="/services" class="pretty-link text-step-0">← Înapoi la servicii</a>
+      <div class="space-y-4">
+        <h1 class="mb-0">{service.title}</h1>
+        <p class="text-step-2 text-neutral-700">
+          {service.intro}
+        </p>
+      </div>
+      <div class="relative overflow-hidden rounded-xl">
+        <Image
+          src={service.image}
+          alt={service.title}
+          width={1280}
+          class="h-auto w-full object-cover"
+          loading="eager"
+        />
+      </div>
+    </header>
+
+    <section class="space-y-4 text-step-2 text-neutral-700">
+      {service.details.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold">Beneficii principale</h2>
+      <ul class="mt-3 list-disc space-y-2 pl-6 text-step-1 text-neutral-700">
+        {service.benefits.map((benefit) => (
+          <li>{benefit}</li>
+        ))}
+      </ul>
+    </section>
+
+    {service.extraNotes && (
+      <section class="rounded-lg border border-amber-200 bg-amber-50 p-6 text-step-1 text-neutral-800">
+        <strong class="block font-semibold">Notă importantă</strong>
+        <p class="mt-2">{service.extraNotes}</p>
+      </section>
+    )}
+
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold">Programează o consultație</h2>
+      <p class="text-step-1 text-neutral-700">
+        Discută cu Dr. Dalibor Pavlișan pentru un plan terapeutic personalizat și recomandări adaptate nevoilor tale.
+      </p>
+      <Schedule_button />
+    </section>
+  </article>
+</Layout>

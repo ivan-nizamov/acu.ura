@@ -7,6 +7,7 @@ export interface Service {
   blurb: string;
   price: number | string;
   image: ImageMetadata; // import image modules in the parent/page
+  slug?: string;
 }
 
 interface Props {
@@ -27,33 +28,53 @@ const allServices = services;
       role="list"
       class="grid grid-cols-1 gap-y-8 md:grid-cols-2 md:gap-x-12 md:gap-y-10"
     >
-      {allServices.map((s) => (
-        <li class="flex h-full items-start gap-4">
-          <div class="shrink-0">
-            <Image
-              src={s.image}
-              alt={s.title}
-              width={80}
-              height={80}
-              class="size-16 rounded-full object-cover"
-              format="webp"
-            />
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="flex flex-wrap items-baseline gap-y-2 gap-x-4">
-              <h3 class="min-w-0 flex-1 text-step-3 my-0 font-semibold tracking-tight text-neutral-900">
-                {s.title}
-              </h3>
-              <span class="shrink-0 text-step-2 font-semibold tabular-nums text-neutral-800">
-                {typeof s.price === "number" ? `${s.price} Lei` : s.price}
-              </span>
+      {allServices.map((s) => {
+        const href = s.slug ? `/terapii/${s.slug}` : undefined;
+        const content = (
+          <>
+            <div class="shrink-0">
+              <Image
+                src={s.image}
+                alt={s.title}
+                width={80}
+                height={80}
+                class="size-16 rounded-full object-cover"
+                format="webp"
+              />
             </div>
-            <p class="mt-2 text-step-1 text-neutral-700">
-              {s.blurb}
-            </p>
-          </div>
-        </li>
-      ))}
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-wrap items-baseline gap-y-2 gap-x-4">
+                <h3 class="min-w-0 flex-1 text-step-3 my-0 font-semibold tracking-tight text-neutral-900">
+                  {s.title}
+                </h3>
+                <span class="shrink-0 text-step-2 font-semibold tabular-nums text-neutral-800">
+                  {typeof s.price === "number" ? `${s.price} Lei` : s.price}
+                </span>
+              </div>
+              <p class="mt-2 text-step-1 text-neutral-700">
+                {s.blurb}
+              </p>
+            </div>
+          </>
+        );
+
+        return (
+          <li class="h-full">
+            {href ? (
+              <a
+                href={href}
+                class="flex h-full items-start gap-4 rounded-md transition hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800"
+              >
+                {content}
+              </a>
+            ) : (
+              <div class="flex h-full items-start gap-4">
+                {content}
+              </div>
+            )}
+          </li>
+        );
+      })}
     </ul>
   </div>
 </section>
