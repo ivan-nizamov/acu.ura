@@ -1,18 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Schedule_button from '../components/Schedule-button.astro';
+import { Image } from "astro:assets";
+
+import doctor from "@/assets/Pavlisan.png"
 
 const seoTitle = "Acupunctură Timișoara | Dr. Dalibor Pavlisan | Soluții Naturale pentru Sănătate | Terapia cu venin de albine";
 const seoDescription = "Activează-ți puterea de autovindecare prin acupunctură și terapii complementare în cadrul  Cabinetului medical de Acupunctură şi Homeopatie Dr. Pavlişan Dalibor din Timișoara. Abordare holistică pentru durere, echilibru și vindecare naturală.";
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-  <h1 class="mt-xs mb-0">
-    Sănătate și Echilibru Natural în Timișoara cu <a href="/about" class="pretty-link">Dr. Dalibor Pavlisan</a>
-  </h1>
-  <h2 class="font-medium">
-    Redescoperă-ți Puterea de Vindecare prin Acupunctură și Terapii Integrative.
-  </h2>
+  <div class="flex flex-row items-center relative overflow-hidden">
+    <div class="basis-1/4 relative flex justify-center">
+      <!-- Blue rounded accent rectangle -->
+      <div class="absolute inset-y-10 left-0 w-3/4 bg-blue-100 rounded-3xl"></div>
+
+      <!-- Doctor image (rounded and above background) -->
+      <Image
+        src={doctor}
+        alt="Doctor holding baby"
+        class="relative z-10 max-w-md rounded-3xl drop-shadow-lg"
+      />
+    </div>
+
+    <div class="basis-3/4 px-6">
+      <h1 class="mt-xs mb-0 text-4xl font-bold leading-tight">
+        Sănătate și Echilibru Natural în Timișoara cu 
+        <a href="/about" class="pretty-link">Dr. Dalibor Pavlisan</a>
+      </h1>
+      <h2 class="font-medium mt-4 text-lg text-gray-700">
+        Redescoperă-ți Puterea de Vindecare prin Acupunctură și Terapii Integrative.
+      </h2>
+    </div>
+  </div>
+
+
   <p>
     Activează-ți puterea de autovindecare prin acupunctură și terapii complementare în cadrul Cabinetului medical de Acupunctură şi Homeopatie Dr. Pavlişan Dalibor din Timișoara. Abordarea noastră holistică pune accent pe echilibru, prevenție și grijă personalizată pentru fiecare pacient.
   </p>
