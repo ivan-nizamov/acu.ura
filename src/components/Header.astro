@@ -1,13 +1,55 @@
 ---
----  
-<header class="sticky top-0 z-50 w-full bg-bg py-s px-xl">
-  <div class="mx-auto flex w-full max-w-[800px] items-center justify-between">
-    <a href="/" class="text-step-2 font-bold italic">Dr. Pavlisan</a>
-
-    <nav class="flex gap-m text-step-1 font-medium">
-      <a href="/about">Despre</a>
-      <a href="/services">Terapii</a>
-      <a href="/contact">Contact</a>
-    </nav>
-  </div>
-</header>
+import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from "@/components/starwind/dropdown";
+import { Button } from "@/components/starwind/button";
+import { Icon } from 'astro-icon/components'
+import Center from "@/components/Center.astro"
+---
+<Center>
+  <header class="sticky top-0 z-50 w-full bg-bg py-s ">
+    <div class="mx-auto flex w-full items-center justify-between">
+      <!-- Brand -->
+      <a href="/" class="text-step-2 font-bold italic">
+        Dr. Pavlisan
+      </a>
+  
+      <!-- Desktop nav (visible md and up) -->
+      <nav class="hidden md:flex gap-m text-step-1 font-medium">
+        <a href="/about" class="hover:underline">Despre</a>
+        <a href="/services" class="hover:underline">Terapii</a>
+        <a href="/contact" class="hover:underline">Contact</a>
+      </nav>
+  
+      <!-- Mobile dropdown nav (hidden on md and up) -->
+      <div class="md:hidden">
+        <Dropdown>
+          <DropdownTrigger asChild>
+            <Button
+              aria-label="Deschide meniul"
+              class="text-step-1 font-medium"
+              variant="outline"
+              size="sm"
+            >
+              <Icon name="menu" size={300}/>
+            </Button>
+          </DropdownTrigger>
+  
+          <DropdownContent
+            align="end"
+            sideOffset={8}
+            class="min-w-[12rem] text-step-1 font-medium"
+          >
+            <DropdownItem as="a" href="/about">
+              Despre
+            </DropdownItem>
+            <DropdownItem as="a" href="/services">
+              Terapii
+            </DropdownItem>
+            <DropdownItem as="a" href="/contact">
+              Contact
+            </DropdownItem>
+          </DropdownContent>
+        </Dropdown>
+      </div>
+    </div>
+  </header>
+</Center>

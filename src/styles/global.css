@@ -112,8 +112,8 @@
 
   /* Colors */
   --color-text: var(--gold-12);
-  --color-secondary-text: var(--gold-11);
-  --color-muted: var(--gold-7);
+  --color-secondary-text: #61acdb8f;
+  --color-muted: #61acdb;
   --color-bg: var(--gold-1);
 
   --text-step--1: clamp(0.8889rem, 0.88rem + 0.0444vi, 0.9rem);
