@@ -1,16 +1,32 @@
 ---
-
+// layout import 
+import Layout from "@/layouts/Layout.astro";
+import { Button } from "@/components/starwind/button";
 ---
+<Layout>
+  <section class="max-w-6xl mx-auto px-[var(--space-s)] py-[var(--space-m)] flex flex-col gap-[var(--space-m)]">
+    <div>
+      <h1 class="text-2xl font-semibold mb-[var(--space-s)]">Button Sizes</h1>
+      <div class="flex items-center gap-[var(--space-s)]">
+        <Button size="sm" variant="default">Default sm</Button>
+        <Button size="md" variant="default">Default md</Button>
+        <Button size="lg" variant="default">Default lg</Button>
+      </div>
+    </div>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <div>
+      <h2 class="text-xl font-semibold mb-[var(--space-s)]">Variants (md)</h2>
+      <div class="flex flex-wrap items-center gap-[var(--space-s)]">
+        <Button variant="default">Default</Button>
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="outline">Outline</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="info">Info</Button>
+        <Button variant="success">Success</Button>
+        <Button variant="warning">Warning</Button>
+        <Button variant="error">Error</Button>
+      </div>
+    </div>
+  </section>
+</Layout>

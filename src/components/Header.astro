@@ -1,0 +1,41 @@
+---
+// Header.astro
+import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from "@/components/starwind/dropdown";
+import { Button } from "@/components/starwind/button";
+---
+<header class="border-b">
+  <div class="mx-auto px-[var(--space-s)] py-[var(--space-s)] flex items-center">
+    <!-- Logo / title -->
+    <div class="font-bold italic text-2xl">Pavlisan.</div>
+
+    <!-- Desktop nav (hidden on mobile) -->
+    <nav class="ml-auto hidden md:flex gap-[var(--space-l)] items-center">
+      <a href="/despre" class="text-sm hover:underline">Despre</a>
+      <a href="/servicii" class="text-sm hover:underline">Servicii</a>
+      <a href="/contact" class="text-sm hover:underline">Contact</a>
+    </nav>
+
+    <!-- Mobile dropdown (visible only below sm) -->
+    <Dropdown class="sm:hidden">
+      <DropdownTrigger asChild>
+        <!-- custom hamburger button -->
+        <button
+          aria-label="Open menu"
+          class="h-[var(--space-m)] w-[var(--space-m)] flex items-center justify-center"
+        >
+          <div class="grid justify-items-center gap-[var(--space-3xs)]">
+            <span class="block h-0.5 w-[var(--space-m)] rounded-full bg-black"></span>
+            <span class="block h-0.5 w-[var(--space-m)] rounded-full bg-black"></span>
+            <span class="block h-0.5 w-[var(--space-m)] rounded-full bg-black"></span>
+          </div>
+        </button>
+      </DropdownTrigger>
+
+      <DropdownContent align="end">
+        <DropdownItem as="a" href="/despre">Despre</DropdownItem>
+        <DropdownItem as="a" href="/servicii">Servicii</DropdownItem>
+        <DropdownItem as="a" href="/contact">Contact</DropdownItem>
+      </DropdownContent>
+    </Dropdown>
+  </div>
+</header>

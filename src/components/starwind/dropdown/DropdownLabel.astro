@@ -10,10 +10,10 @@ type Props = HTMLAttributes<"div"> & {
 };
 
 export const dropdownLabel = tv({
-  base: ["px-2 py-1.5 font-semibold"],
+  base: ["px-[var(--space-2xs)] py-[var(--space-3xs-2xs)] font-semibold"],
   variants: {
     inset: {
-      true: "pl-8",
+      true: "pl-[var(--space-l)]",
     },
   },
   defaultVariants: {
