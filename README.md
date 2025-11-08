@@ -48,7 +48,15 @@ pnpx starwind@latest add button dropdown item
 
 ## Spacing Variables Cheatsheet
 
-Use the global fluid spacing variables for all paddings, margins, and gaps. In Tailwind classes, use arbitrary values with CSS variables, e.g. `p-[var(--space-s)]`, `gap-[var(--space-2xs)]`, `-mx-[var(--space-3xs)]`.
+Use the global fluid spacing variables for all paddings, margins, and gaps.
+
+Short, token-based classes are enabled:
+- `p-s`, `px-xs`, `py-2xs`, `gap-l`, `-mx-3xs`, etc.
+
+These map to dynamic CSS variables via Tailwind v4 tokens we added in `@theme`:
+- `--spacing-s: var(--space-s)`, `--spacing-2xs: var(--space-2xs)`, …
+
+You can still use arbitrary values if you need to: `p-[var(--space-s)]`, `gap-[var(--space-2xs)]`, `-mx-[var(--space-3xs)]`.
 
 - Core scale
   - 3xs (tight): `var(--space-3xs)` ≈ 4–5px (e.g. separators, micro offsets)
@@ -66,15 +74,15 @@ Use the global fluid spacing variables for all paddings, margins, and gaps. In T
   - …and so on up the scale
 
 - Common replacements
-  - `p-4` → `p-[var(--space-s)]`
+  - `p-4` → `p-s`
   - `px-4` → `px-[var(--space-s)]`
   - `py-3` → `py-[var(--space-xs)]`
   - `py-2` → `py-[var(--space-2xs)]`
   - `px-2` → `px-[var(--space-2xs)]`
-  - `gap-4` → `gap-[var(--space-s)]`
-  - `gap-2` → `gap-[var(--space-2xs)]`
-  - `gap-1.5` → `gap-[var(--space-3xs-2xs)]`
-  - `-mx-1` → `-mx-[var(--space-3xs)]`
+  - `gap-4` → `gap-s`
+  - `gap-2` → `gap-2xs`
+  - `gap-1.5` → `gap-3xs-2xs`
+  - `-mx-1` → `-mx-3xs`
 
 - When to use which
   - Components: prefer `2xs`/`xs` for inner padding, `s` for outer padding.
