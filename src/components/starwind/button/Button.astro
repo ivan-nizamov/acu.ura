@@ -11,8 +11,8 @@ const { variant, size, class: className, ...rest } = Astro.props;
 
 export const button = tv({
   base: [
-    "inline-flex items-center justify-center gap-[var(--space-3xs-2xs)] rounded-md font-medium whitespace-nowrap",
-    "[&_svg]:pointer-events-none [&_svg]:size-[var(--space-s)] [&_svg]:shrink-0",
+    "inline-flex items-center justify-center gap-3xs-2xs rounded-md font-medium whitespace-nowrap",
+    "[&_svg]:pointer-events-none [&_svg]:size-s [&_svg]:shrink-0",
     "transition-all outline-none focus-visible:ring-3",
     "disabled:pointer-events-none disabled:opacity-50",
   ],
@@ -34,12 +34,12 @@ export const button = tv({
       error: "bg-error text-error-foreground hover:bg-error/90 focus-visible:ring-error/50",
     },
     size: {
-      sm: "h-[var(--space-l)] px-[var(--space-xs)] py-[var(--space-2xs)] text-sm",
-      md: "h-[calc(var(--space-l)+var(--space-2xs))] px-[var(--space-s)] py-[var(--space-2xs)] text-base",
-      lg: "h-[var(--space-xl)] px-[var(--space-l)] py-[var(--space-2xs)] text-lg",
+      sm: "h-l px-xs py-2xs text-sm",
+      md: "h-[calc(var(--space-l)+var(--space-2xs))] px-s py-2xs text-base",
+      lg: "h-xl px-l py-2xs text-lg",
       icon: "size-[calc(var(--space-l)+var(--space-2xs))]",
-      "icon-sm": "size-[var(--space-l)]",
-      "icon-lg": "size-[var(--space-xl)]",
+      "icon-sm": "size-l",
+      "icon-lg": "size-xl",
     },
   },
   defaultVariants: { variant: "default", size: "md" },

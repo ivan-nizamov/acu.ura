@@ -15,13 +15,13 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 
 export const dropdownItem = tv({
   base: [
-    "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-[var(--space-2xs)] rounded-sm px-[var(--space-2xs)] py-[var(--space-3xs-2xs)] transition-colors outline-none select-none",
+    "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2xs rounded-sm px-2xs py-3xs-2xs transition-colors outline-none select-none",
     "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-    "[&>svg]:size-[var(--space-s)] [&>svg]:shrink-0",
+    "[&>svg]:size-s [&>svg]:shrink-0",
   ],
   variants: {
     inset: {
-      true: "pl-[var(--space-l)]",
+      true: "pl-l",
     },
     disabled: {
       true: "pointer-events-none opacity-50",
