@@ -7,6 +7,8 @@
 	--animate-accordion-down: accordion-down 0.2s ease-out;
 	--animate-accordion-up: accordion-up 0.2s ease-out;
 
+  --font-sans: "EB Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
+
 	@keyframes accordion-down {
 		from {
 			height: 0;

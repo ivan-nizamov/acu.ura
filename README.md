@@ -119,3 +119,22 @@ Use spacing variables for fixed heights too:
 - Hamburger trigger
   - Wrapper: `h/w-[var(--space-m)]`
   - Bars: `h-0.5` (2px hairline-like) and `w-[var(--space-m)]`
+
+# Tips for future referance 
+## How to set default font 
+
+Include the following in the head of your page:
+```astro
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap"
+  />
+```
+(Embed link provided by google fonts)
+
+Then add this to your tailwind:
+```css
+@theme {
+    --font-sans: "EB Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
+}
+```

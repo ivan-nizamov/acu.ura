@@ -13,10 +13,14 @@ import Footer from "@/components/Footer.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap"
+    />
 </head>
 <body>
     <Header />
-    <main>
+    <main class="mx-xs">
         <slot />
     </main>
     <Footer />

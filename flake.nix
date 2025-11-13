@@ -13,11 +13,15 @@
       packages = with pkgs;[
         pnpm
         nodejs_24
+        zsh
       ];
 
       shellHook = ''
         echo "dev shell loaded! node: $(node --version)"
         pnpm install
+        if [ -z "$ZSH_VERSION" ]; then
+          exec ${pkgs.zsh}/bin/zsh
+        fi
       '';
     };
   };
