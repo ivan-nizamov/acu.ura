@@ -15,32 +15,51 @@ import magnetic from "@/assets/services/magnetic.webp";
 import moxibustie from "@/assets/services/moxibustie.webp";
 import sujok from "@/assets/services/sujok.webp";
 import terapieFloralaBach from "@/assets/services/terapie_florala_bach.webp";
+
+const services = [
+  { title: "Acupunctură clasică", image: acupuncturaClasica },
+  { title: "Apipunctură", image: apipunctura },
+  { title: "Apiterapie", image: apiterapie },
+  { title: "Aromaterapie", image: aromaterapie },
+  { title: "Electroacupunctură", image: electroacupunctura },
+  { title: "Fitoterapie", image: fitoterapie },
+  { title: "Homeomezoterapie", image: homeomezoterapie },
+  { title: "Homeopatie", image: homeopatie },
+  { title: "Terapie magnetică", image: magnetic },
+  { title: "Moxibustie", image: moxibustie },
+  { title: "Sujok", image: sujok },
+  { title: "Terapie florală Bach", image: terapieFloralaBach },
+];
 ---
+
 <Layout>
-<div>
-  <div class="bg-blue-400/40 rounded-3xl px-m py-m mx-xs mb-s">
-    <div class="text-black text-xl md:text-xl lg:text-2xl font-semibold grow">
-      Sănătate și Echilibru Natural în Timișoara cu Dr. Dalibor Pavlisan
+  <div>
+    <div class="bg-blue-400/40 rounded-3xl px-m py-m mx-xs mb-xs">
+      <div class="text-black text-xl md:text-xl lg:text-2xl font-semibold grow">
+        Sănătate și Echilibru Natural în Timișoara cu Dr. Dalibor Pavlisan
+      </div>
+    </div>
+
+    <div class="bg-zinc-50/70 rounded-3xl px-m py-m mx-xs mb-xs">
+      <div class="text-black text-lg md:text-xl lg:text-2xl font-semibold grow">
+        Sănătate și Echilibru Natural în Timișoara cu Dr. Dalibor Pavlisan
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-xs md:gap-s mx-xs">
+      {services.map((service) => (
+        <div class="bg-zinc-50/70 rounded-3xl px-m py-m flex flex-col items-center text-center">
+          <img
+            src={service.image.src ?? service.image}
+            alt={service.title}
+            loading="lazy"
+            class="w-24 h-24 rounded-full object-cover mb-s border border-zinc-200 shadow-sm"
+          />
+          <div class="text-black text-lg md:text-base lg:text-lg font-semibold">
+            {service.title}
+          </div>
+        </div>
+      ))}
     </div>
   </div>
-  <div class="bg-zinc-50/70 rounded-3xl px-m py-m mx-xs mb-s">
-    <div class="text-black text-lg md:text-xl lg:text-2xl font-semibold grow">
-      Sănătate și Echilibru Natural în Timișoara cu Dr. Dalibor Pavlisan
-    </div>
-  </div>
-  <div class="grid grid-cols-2 gap-xs mx-xs">
-    <div class="bg-zinc-50/70 rounded-3xl px-m py-m ">
-      <div class="text-black text-lg md:text-xl lg:text-2xl font-semibold grow">
-Therapy I Image and Title      </div>
-    </div>
-    <div class="bg-zinc-50/70 rounded-3xl px-m py-m">
-      <div class="text-black text-lg md:text-xl lg:text-2xl font-semibold grow">
-Therapy 2 Image and Title      </div>
-    </div>
-        <div class="bg-zinc-50/70 rounded-3xl px-m py-m">
-      <div class="text-black text-lg md:text-xl lg:text-2xl font-semibold grow">
-Therapy 3 Image and Title      </div>
-    </div>
-  </div>
-</div>
 </Layout>
