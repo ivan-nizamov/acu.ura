@@ -3,7 +3,7 @@
 import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from "@/components/starwind/dropdown";
 ---
 
-<header class="border-b">
+<header class="border-b fixed w-full bg-background ">
   <div class="mx-auto px-m py-s flex items-center">
     <!-- Logo / title -->
     <div class="font-bold italic text-2xl justify-start">
@@ -20,7 +20,7 @@ import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from "@/comp
       </nav>
 
       <!-- Mobile dropdown (below md) -->
-      <Dropdown class="md:hidden justify-end">
+      <Dropdown class="md:hidden text-2xl">
         <DropdownTrigger asChild>
           <button
             aria-label="Open menu"
