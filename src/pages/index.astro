@@ -17,18 +17,90 @@ import sujok from "@/assets/services/sujok.webp";
 import terapieFloralaBach from "@/assets/services/terapie_florala_bach.webp";
 
 const services = [
-  { title: "Acupunctură clasică", image: acupuncturaClasica },
-  { title: "Apipunctură", image: apipunctura },
-  { title: "Apiterapie", image: apiterapie },
-  { title: "Aromaterapie", image: aromaterapie },
-  { title: "Electroacupunctură", image: electroacupunctura },
-  { title: "Fitoterapie", image: fitoterapie },
-  { title: "Homeomezoterapie", image: homeomezoterapie },
-  { title: "Homeopatie", image: homeopatie },
-  { title: "Terapie magnetică", image: magnetic },
-  { title: "Moxibustie", image: moxibustie },
-  { title: "Sujok", image: sujok },
-  { title: "Terapie florală Bach", image: terapieFloralaBach },
+  {
+    title: "Acupunctură clasică",
+    image: acupuncturaClasica,
+    slug: "acupunctura-clasica",
+    description:
+      "Echilibrează fluxul energetic prin înțeparea punctelor-cheie, utilă în dureri cronice, tulburări de somn și stres.",
+  },
+  {
+    title: "Apipunctură",
+    image: apipunctura,
+    slug: "apipunctura",
+    description:
+      "Îmbină acupunctura cu venin de albine în doze controlate, cu efect antiinflamator și imunomodulator.",
+  },
+  {
+    title: "Apiterapie",
+    image: apiterapie,
+    slug: "apiterapie",
+    description:
+      "Folosește produsele stupului (miere, propolis, polen) pentru susținerea imunității și refacerea organismului.",
+  },
+  {
+    title: "Aromaterapie",
+    image: aromaterapie,
+    slug: "aromaterapie",
+    description:
+      "Uleiuri esențiale pure, alese individual, pentru relaxare, somn mai bun și echilibru emoțional.",
+  },
+  {
+    title: "Electroacupunctură",
+    image: electroacupunctura,
+    slug: "electroacupunctura",
+    description:
+      "Stimulare blândă cu curent de joasă intensitate pe acele de acupunctură pentru un efect analgezic accentuat.",
+  },
+  {
+    title: "Fitoterapie",
+    image: fitoterapie,
+    slug: "fitoterapie",
+    description:
+      "Scheme personalizate cu plante medicinale pentru reglarea organelor și sistemelor afectate.",
+  },
+  {
+    title: "Homeomezoterapie",
+    image: homeomezoterapie,
+    slug: "homeomezoterapie",
+    description:
+      "Microinjectări de remedii homeopate în puncte specifice pentru o acțiune locală, rapidă și delicată.",
+  },
+  {
+    title: "Homeopatie",
+    image: homeopatie,
+    slug: "homeopatie",
+    description:
+      "Abordare holistică cu remedii homeopate individualizate, adaptate constituției și simptomelor fiecărui pacient.",
+  },
+  {
+    title: "Terapie magnetică",
+    image: magnetic,
+    slug: "terapie-magnetica",
+    description:
+      "Câmpuri magnetice pulsatile pentru îmbunătățirea circulației, reducerea durerilor și refacerea țesuturilor.",
+  },
+  {
+    title: "Moxibustie",
+    image: moxibustie,
+    slug: "moxibustie",
+    description:
+      "Încălzirea punctelor de acupunctură cu moxă pentru susținerea energiei vitale (Qi) și a imunității.",
+  },
+  {
+    title: "Sujok",
+    image: sujok,
+    slug: "sujok",
+    description:
+      "Terapie coreeană aplicată pe palme și tălpi, utilă în dureri și dezechilibre funcționale ale organelor.",
+  },
+  {
+    title: "Terapie florală Bach",
+    image: terapieFloralaBach,
+    slug: "terapie-florala-bach",
+    description:
+      "Esențe florale Bach pentru reglarea emoțiilor, anxietății și stresului din viața de zi cu zi.",
+  },
 ];
 ---
 
@@ -46,19 +118,32 @@ const services = [
       </div>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-xs md:gap-s mx-xs">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-xs md:gap-s mx-xs">
       {services.map((service) => (
-        <div class="bg-zinc-50/70 rounded-3xl px-s py-s flex flex-col items-center text-center">
-          <img
-            src={service.image.src ?? service.image}
-            alt={service.title}
-            loading="lazy"
-            class="w-24 h-24 rounded-full object-cover mb-s border border-zinc-200 shadow-sm"
-          />
-          <div class="text-black text-lg md:text-base lg:text-lg font-semibold">
-            {service.title}
+        <a
+          href={`/servicii/${service.slug}`}
+          class="bg-zinc-50/70 rounded-3xl px-m py-m lg:px-l lg:py-m flex lg:col-span-2 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+        >
+          <div class="flex flex-col items-center text-center gap-s w-full lg:flex-row lg:items-center lg:text-left">
+            {/* Left side: image + title */}
+            <div class="flex flex-col items-center lg:items-start gap-2 shrink-0">
+              <img
+                src={service.image.src ?? service.image}
+                alt={service.title}
+                loading="lazy"
+                class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border border-zinc-200 shadow-sm"
+              />
+              <div class="text-black text-sm md:text-base lg:text-lg text-center font-semibold">
+                {service.title}
+              </div>
+            </div>
+
+            {/* Right side: description (only on large screens) */}
+            <p class="hidden lg:block text-lg text-zinc-700 leading-snug lg:ml-s">
+              {service.description}
+            </p>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   </div>
